@@ -1,817 +1,607 @@
- 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#071426">
-<title>SanketVani | Sign Language Learning</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07162e">
+<title>संकेतवाणी | Sign Language Learning Platform</title>
 
-<!-- MediaPipe Hands library -->
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js"></script>
 
 <style>
-:root {
-  --bg:#071426;
-  --panel:#0e2038;
-  --panel2:#122945;
-  --blue:#3285ff;
-  --cyan:#3ee5ff;
-  --yellow:#ffd166;
-  --text:#f3f7ff;
-  --muted:#a8b9d0;
-  --border:rgba(119,190,255,.18);
+:root{
+  --bg:#07162e;--panel:#102541;--panel2:#0b1d38;
+  --blue:#1677f9;--cyan:#14d5e8;--yellow:#ffcf48;
+  --white:#f5f8ff;--muted:#a9bad2;--border:#21486d;
+  --green:#20d995;--red:#ff697d
 }
-*{box-sizing:border-box;margin:0;padding:0}
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  font-family:Inter,system-ui,-apple-system,Arial,sans-serif;
-  color:var(--text);
-  background:
-    radial-gradient(ellipse at 10% 0%,#12345a 0,transparent 36%),
-    var(--bg);
-  min-height:100vh;
-}
-button,input,textarea{font:inherit}
+body{margin:0;background:radial-gradient(ellipse at 80% 0,#063c6d 0,transparent 40%),var(--bg);color:var(--white);font-family:system-ui,"Noto Sans Devanagari",Arial,sans-serif;line-height:1.6}
+button,input{font:inherit}
 button{cursor:pointer}
-button:focus-visible,input:focus-visible,textarea:focus-visible{
-  outline:2px solid var(--cyan);outline-offset:3px
-}
-header{
-  position:sticky;top:0;z-index:20;
-  display:flex;align-items:center;justify-content:space-between;
-  gap:15px;padding:15px 6%;
-  background:rgba(7,20,38,.92);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border)
-}
-.logo{font-size:22px;font-weight:900;letter-spacing:-1px}
-.logo span{color:var(--cyan)}
-nav{display:flex;gap:7px;flex-wrap:wrap}
-.nav-btn{
-  color:var(--muted);background:transparent;border:0;
-  padding:10px 12px;border-radius:10px;font-size:13px;
-}
-.nav-btn:hover,.nav-btn.active{background:#183453;color:white}
-main{max-width:1200px;margin:auto;padding:30px 5% 70px}
-.page{display:none;animation:fadeIn .3s ease}
+button:focus-visible,input:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.container{width:min(1160px,94%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#07162ef2;backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:76px}
+.brand{display:flex;gap:10px;align-items:center;font-size:1.25rem;font-weight:850}
+.logo{display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#06172c;width:44px;height:44px;border-radius:14px;font-size:25px}
+.brand small{display:block;font-size:.67rem;color:var(--muted);font-weight:500}
+.navlinks{display:flex;flex-wrap:wrap;gap:5px}
+.navlinks button{border:0;background:transparent;color:var(--muted);padding:10px 12px;border-radius:10px}
+.navlinks button:hover,.navlinks button.active{background:#12345a;color:white}
+main{min-height:65vh}
+.page{display:none;padding-bottom:50px;animation:fade .25s ease}
 .page.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.hero{
-  min-height:440px;display:grid;grid-template-columns:1.1fr .9fr;
-  gap:35px;align-items:center;padding:35px 0
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center;padding:65px 0 40px}
+.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:1px}
+h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.1;letter-spacing:-2px;margin:15px 0}
+.gradient{background:linear-gradient(100deg,#fff,var(--cyan));color:transparent;background-clip:text}
+.tagline{font-size:1.2rem;color:var(--yellow);font-weight:750}
+p{margin:8px 0;color:var(--muted)}
+.hero-art{min-height:280px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #167bb1;border-radius:28px;background:linear-gradient(140deg,#0b315a,#087ba7 55%,#0c3b73);box-shadow:0 20px 70px #00102080}
+.hero-hand{font-size:145px;filter:drop-shadow(0 0 20px #16d5e866);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px)}}
+.hero-chip{position:absolute;right:14px;bottom:16px;background:#061b38;border:1px solid var(--cyan);border-radius:15px;padding:12px 22px;text-align:center}
+.hero-chip strong{font-size:2.2rem;color:var(--yellow);display:block}
+.btn{padding:11px 17px;border:1px solid var(--border);border-radius:12px;background:#112c4c;color:white;font-weight:750;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.primary{background:linear-gradient(110deg,#1468e9,#08b8d5);border:0}
+.yellow{background:var(--yellow);color:#172238;border:0}
+.green{background:#087d58;border:0}
+.danger{background:#9c3044;border:0}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.grid{display:grid;gap:16px}
+.features{grid-template-columns:repeat(4,minmax(0,1fr));margin:12px 0 25px}
+.card{background:linear-gradient(145deg,#102743,#0b1e38);border:1px solid var(--border);border-radius:19px;padding:20px;box-shadow:0 12px 32px #0002;min-width:0}
+.feature-icon{font-size:2rem}
+.feature h3{margin:8px 0 4px;font-size:1rem}
+.feature p{font-size:.86rem}
+.split{grid-template-columns:1fr 1fr}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:25px 0 16px}
+h2{font-size:clamp(1.5rem,3.5vw,2.15rem);margin:0}
+h3{margin:0 0 7px}
+.pill{font-size:.78rem;color:var(--cyan);border:1px solid #1c6784;border-radius:30px;padding:5px 10px;white-space:nowrap}
+.status{font-size:.83rem;border:1px solid var(--border);padding:10px 12px;border-radius:10px;margin-top:13px;color:var(--muted);overflow-wrap:anywhere}
+.status.error{color:#ff9cab;border-color:#793747}
+.status.success{color:#6ef0bd;border-color:#1b765a}
+.camera-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(200px,.7fr);gap:15px}
+.video-box{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:14px;background:#020b18;border:1px solid #24547a}
+video,.overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+video,.overlay{transform:scaleX(-1)}
+.overlay{pointer-events:none}
+.video-empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:var(--muted);padding:15px}
+.big-letter{font-size:clamp(4rem,9vw,6.5rem);line-height:1.2;font-weight:900;color:var(--yellow);text-align:center}
+.result-box{background:#061b37;border:1px solid #166ba0;border-radius:15px;padding:20px;text-align:center;margin:10px 0}
+.word{padding:14px;border:1px solid var(--border);border-radius:10px;min-height:52px;overflow-wrap:anywhere;font-size:1.25rem;font-weight:800;margin-top:10px}
+.steps{grid-template-columns:repeat(4,1fr)}
+.step-no{color:var(--yellow);font-size:1.6rem;font-weight:900}
+.alphabet{grid-template-columns:repeat(7,minmax(0,1fr))}
+.letter{padding:9px 4px;text-align:center;background:#0c2542;border:1px solid var(--border);border-radius:12px;color:white}
+.letter:hover,.letter.selected{border-color:var(--cyan);background:#123c60}
+.letter strong{display:block;font-size:1.5rem;color:var(--cyan)}
+.letter span{font-size:.72rem;color:var(--muted)}
+.text-input{width:100%;min-width:0;background:#071a33;border:1px solid #315777;border-radius:11px;padding:13px;color:white}
+.text-input::placeholder{color:#8ca5c2}
+.sign-preview{min-height:220px;display:grid;place-items:center;background:#f0f5fc;color:#112541;border-radius:14px;padding:16px;text-align:center}
+.sign-preview svg{width:min(100%,240px);height:200px}
+.sign-preview .sign-letter{font-size:4rem;font-weight:900;color:#087cc1}
+.tech-grid{grid-template-columns:repeat(4,1fr)}
+.about{padding:25px;border-radius:18px;border:1px solid var(--border);background:linear-gradient(100deg,#0b2c50,#0c455d)}
+footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);font-size:.82rem;text-align:center}
+.note{border-left:3px solid var(--yellow);background:#ffcf480b;border-radius:0 10px 10px 0;padding:12px 15px;font-size:.86rem;color:#d8e4f3;margin:15px 0}
+@media(max-width:850px){
+ .hero{grid-template-columns:1fr;padding-top:40px}.hero-art{min-height:230px}
+ .features{grid-template-columns:repeat(2,1fr)}
+ .steps{grid-template-columns:repeat(2,1fr)}
+ .alphabet{grid-template-columns:repeat(5,1fr)}
+ .camera-grid{grid-template-columns:1fr}
+ .tech-grid{grid-template-columns:repeat(2,1fr)}
 }
-.eyebrow{
-  display:inline-block;color:var(--cyan);font-weight:800;
-  font-size:12px;letter-spacing:2px;margin-bottom:17px
+@media(max-width:540px){
+ .nav{align-items:flex-start;flex-direction:column;padding:12px 0}
+ .navlinks{width:100%;overflow-x:auto;flex-wrap:nowrap}
+ .navlinks button{white-space:nowrap;font-size:.82rem;padding:8px}
+ .split{grid-template-columns:1fr}.features{gap:9px}
+ .card{padding:15px}.alphabet{grid-template-columns:repeat(4,1fr)}
+ .hero-art{min-height:210px}.hero-hand{font-size:110px}
+ .steps{gap:9px}.section-title{align-items:flex-start;flex-direction:column}
 }
-h1{font-size:clamp(38px,6vw,67px);line-height:1.04;letter-spacing:-2px}
-h1 span,.gradient-text{
-  color:var(--cyan);
-  background:linear-gradient(100deg,#40e5ff,#8195ff);
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent
-}
-h2{font-size:clamp(27px,4vw,40px);letter-spacing:-1px}
-h3{font-size:18px;margin-bottom:10px}
-p{color:var(--muted);line-height:1.8}
-.hero p{max-width:570px;margin:20px 0 25px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  border:1px solid var(--border);border-radius:12px;
-  padding:12px 17px;background:#132944;color:white;
-  font-weight:750;transition:.2s
-}
-.btn.primary{background:linear-gradient(110deg,#1689ff,#526dff);border:0}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.12)}
-.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
-.hero-visual{
-  min-height:350px;display:grid;place-items:center;
-  position:relative;overflow:hidden;border-radius:28px;
-  border:1px solid var(--border);
-  background:radial-gradient(circle at 50% 45%,#174a70,#0b1b31 66%);
-}
-.hero-visual::before,.hero-visual::after{
-  content:"";position:absolute;border:1px solid #38dfff55;
-  border-radius:50%;width:270px;height:270px;
-  animation:spin 12s linear infinite
-}
-.hero-visual::after{width:220px;height:220px;border-color:#8794ff77;animation-direction:reverse}
-@keyframes spin{to{transform:rotate(360deg)}}
-.hero-hand{
-  font-size:125px;z-index:1;filter:drop-shadow(0 0 22px #3ee5ff77);
-  animation:float 3.5s ease-in-out infinite;user-select:none
-}
-@keyframes float{50%{transform:translateY(-14px) rotate(7deg)}}
-.hero-chip{
-  position:absolute;z-index:2;bottom:22px;left:50%;
-  transform:translateX(-50%);white-space:nowrap;
-  border:1px solid #3ee5ff55;background:#08182cdd;
-  border-radius:30px;padding:9px 14px;color:var(--cyan);font-size:12px
-}
-.section-heading{text-align:center;margin:55px 0 25px}
-.section-heading p{margin-top:10px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.card{
-  padding:23px;border:1px solid var(--border);
-  background:linear-gradient(145deg,#10243d,#0b1a2e);
-  border-radius:18px
-}
-.card p{font-size:14px}
-.card-icon{font-size:29px;margin-bottom:16px}
-.card .btn{margin-top:16px}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.panel{
-  padding:24px;border-radius:20px;border:1px solid var(--border);
-  background:var(--panel);margin-bottom:20px
-}
-.page-title{margin:20px 0 25px}
-.page-title p{margin-top:8px}
-.status{
-  padding:12px 14px;border:1px solid var(--border);
-  background:#091a2d;border-radius:12px;color:var(--muted);
-  font-size:13px;margin:14px 0
-}
-.status.ok{color:#7ef5c1}
-.status.warn{color:var(--yellow)}
-.field{display:flex;flex-direction:column;gap:8px;margin:15px 0}
-.field label{font-size:13px;color:#d7e8fb;font-weight:700}
-input,textarea{
-  width:100%;border:1px solid var(--border);border-radius:12px;
-  background:#08172a;color:white;padding:13px
-}
-textarea{min-height:110px;resize:vertical}
-.camera-box{
-  position:relative;background:#030a13;border-radius:16px;
-  overflow:hidden;min-height:260px;aspect-ratio:4/3
-}
-.camera-box video,.camera-box canvas{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:contain
-}
-.camera-box canvas{pointer-events:none}
-.result-box{
-  border:1px solid #3ee5ff44;background:#071b2c;
-  border-radius:14px;padding:18px;margin-top:15px
-}
-.result-letter{font-size:42px;font-weight:900;color:var(--cyan)}
-.small{font-size:12px;color:var(--muted)}
-.alphabet-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
-.letter-card{
-  background:#10243d;border:1px solid var(--border);
-  border-radius:13px;padding:15px 5px;text-align:center;
-  color:white;transition:.2s
-}
-.letter-card:hover,.letter-card.selected{
-  border-color:var(--cyan);background:#123650;transform:translateY(-2px)
-}
-.letter-card b{display:block;font-size:27px;color:var(--cyan)}
-.letter-card small{color:var(--muted);font-size:10px}
-.reference-hand{font-size:75px;text-align:center;padding:20px}
-.reference-note{font-size:12px;margin-top:12px}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.step-num{color:var(--cyan);font-size:25px;font-weight:900;margin-bottom:12px}
-footer{
-  padding:24px 5%;border-top:1px solid var(--border);
-  text-align:center;color:var(--muted);font-size:12px
-}
-
-/* 3D animation */
-.scene3d{
-  height:360px;position:relative;display:grid;place-items:center;
-  perspective:900px;overflow:hidden;border-radius:20px;
-  background:radial-gradient(circle,#153e61,#08172a 70%);
-  border:1px solid var(--border);touch-action:pan-y
-}
-.orbit{
-  position:absolute;width:270px;height:110px;border-radius:50%;
-  border:1px solid #3ee5ff99;pointer-events:none
-}
-.orbit.one{transform:rotate(-28deg) rotateX(55deg);animation:orbit 9s linear infinite}
-.orbit.two{width:300px;height:140px;border-color:#8991ff88;transform:rotate(40deg) rotateX(60deg);animation:orbit 12s linear infinite reverse}
-.orbit.three{width:215px;height:215px;border-color:#3ee5ff33;transform:rotateY(65deg)}
-@keyframes orbit{to{rotate:360deg}}
-.core3d{
-  width:185px;height:185px;display:flex;align-items:center;
-  justify-content:center;flex-direction:column;gap:6px;
-  border:1px solid #3ee5ff66;border-radius:32px;
-  background:linear-gradient(145deg,#20ceff22,#6675ff18);
-  box-shadow:inset 0 0 35px #20ceff15,0 0 40px #20ceff20;
-  transform-style:preserve-3d;animation:float 3.5s ease-in-out infinite;
-  z-index:1
-}
-.core3d .hand{font-size:95px;filter:drop-shadow(0 0 15px #3ee5ff88);transform:translateZ(30px)}
-.core3d small{font-size:10px;letter-spacing:2px;color:var(--cyan);transform:translateZ(20px)}
-.scene3d.play .core3d{animation:float .7s ease-in-out infinite}
-.dot3d{position:absolute;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 15px var(--cyan)}
-@media(max-width:800px){
-  header{align-items:flex-start;flex-direction:column}
-  nav{width:100%}
-  .nav-btn{padding:8px;font-size:12px}
-  .hero{grid-template-columns:1fr;padding-top:20px}
-  .hero-visual{min-height:300px}
-  .grid{grid-template-columns:1fr 1fr}
-  .two-col{grid-template-columns:1fr}
-  .steps{grid-template-columns:1fr}
-}
-@media(max-width:480px){
-  main{padding-left:4%;padding-right:4%}
-  .grid{grid-template-columns:1fr}
-  .alphabet-grid{grid-template-columns:repeat(4,1fr)}
-  .panel{padding:16px}
-  .hero-hand{font-size:100px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
-}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
 </style>
 </head>
-
 <body>
+
 <header>
-  <div class="logo">✋ Sanket<span>Vani</span></div>
-  <nav aria-label="Main navigation">
-    <button class="nav-btn active" data-page="home">Home</button>
-    <button class="nav-btn" data-page="hand-text">Hand → Text</button>
-    <button class="nav-btn" data-page="text-hand">Text → Hand</button>
-    <button class="nav-btn" data-page="learn">Learn A–Z</button>
-    <button class="nav-btn" data-page="about">About</button>
+ <div class="container nav">
+  <div class="brand"><div class="logo">✋</div><div>संकेतवाणी<small>Sign Language Detection & Learning Platform</small></div></div>
+  <nav class="navlinks" aria-label="Main navigation">
+   <button class="active" data-page="home">⌂ Home</button>
+   <button data-page="handtext">✋ Hand → Text</button>
+   <button data-page="texthand">▣ Text → Hand</button>
+   <button data-page="learn">▤ Learn</button>
+   <button data-page="about">ⓘ About</button>
   </nav>
+ </div>
 </header>
 
-<main>
-  <!-- HOME -->
-  <section class="page active" id="home">
-    <div class="hero">
-      <div>
-        <span class="eyebrow">ACCESSIBILITY • LEARNING • TECHNOLOGY</span>
-        <h1>Hands Speak.<br><span>Technology Listens.</span></h1>
-        <p>
-          SanketVani is a sign-language learning demo that explores
-          hand gestures, visual references and interactive 3D animation
-          to make communication technology easier to understand.
-        </p>
-        <div class="actions">
-          <button class="btn primary" data-go="hand-text">📷 Try Hand → Text</button>
-          <button class="btn" data-go="text-hand">✍️ Try Text → Hand</button>
-        </div>
-      </div>
-      <div class="hero-visual" aria-label="Animated hand visual">
-        <div class="hero-hand">✋</div>
-        <div class="hero-chip">✦ SIGN LANGUAGE EXPLORER</div>
-      </div>
-    </div>
+<main class="container">
 
-    <div class="section-heading">
-      <h2>Explore <span class="gradient-text">SanketVani</span></h2>
-      <p>Discover the main tools in one place.</p>
-    </div>
-    <div class="grid">
-      <article class="card">
-        <div class="card-icon">📷</div>
-        <h3>Hand → Text</h3>
-        <p>Use your camera to detect hand landmarks and try a limited set of static gesture examples.</p>
-        <button class="btn" data-go="hand-text">Open detection →</button>
-      </article>
-      <article class="card">
-        <div class="card-icon">💬</div>
-        <h3>Text → Hand</h3>
-        <p>Enter text, explore individual letters and browse learning references.</p>
-        <button class="btn" data-go="text-hand">Explore text →</button>
-      </article>
-      <article class="card">
-        <div class="card-icon">🪄</div>
-        <h3>Interactive 3D</h3>
-        <p>Experience a holographic-style hand visual with rotating rings and pointer interaction.</p>
-        <button class="btn" data-go="about">How it works →</button>
-      </article>
-    </div>
+<!-- HOME / LANDING PAGE -->
+<section class="page active" id="home">
+ <div class="hero">
+  <div>
+   <span class="eyebrow">LEARN · PRACTICE · CONNECT</span>
+   <h1>संकेतवाणी <span class="gradient">.</span></h1>
+   <p class="tagline">हाथों की भाषा, अब हर किसी के लिए</p>
+   <p>संकेतवाणी एक शैक्षिक वेब प्लेटफॉर्म है जो आपको हाथों के संकेतों, ASL alphabet और hand landmark detection की बुनियादी जानकारी देता है।</p>
+   <div class="actions">
+    <button class="btn yellow" data-go="handtext">▶ Start Exploring</button>
+    <button class="btn" data-go="about">Learn More</button>
+   </div>
+  </div>
+  <div class="hero-art" aria-label="हाथ के संकेतों का illustration">
+   <div class="hero-hand">🤚</div>
+   <div class="hero-chip"><strong>A–Z</strong><span>Learn & Practice</span></div>
+  </div>
+ </div>
 
-    <div class="section-heading">
-      <h2>How it works</h2>
-      <p>A simple introduction to camera-based hand landmark detection.</p>
-    </div>
-    <div class="steps">
-      <article class="card"><div class="step-num">01</div><h3>Capture</h3><p>The browser requests permission to access your webcam.</p></article>
-      <article class="card"><div class="step-num">02</div><h3>Track</h3><p>MediaPipe Hands estimates hand landmarks from each camera frame.</p></article>
-      <article class="card"><div class="step-num">03</div><h3>Interpret</h3><p>A basic demo classifier attempts to identify a few hand shapes.</p></article>
-    </div>
-  </section>
+ <div class="grid features">
+  <article class="card feature"><div class="feature-icon">📷</div><h3>Real-time Detection</h3><p>वेबकैम से हाथ के landmarks ट्रैक करें।</p></article>
+  <article class="card feature"><div class="feature-icon">📖</div><h3>Learn ASL Alphabet</h3><p>A–Z अक्षरों का अभ्यास करें।</p></article>
+  <article class="card feature"><div class="feature-icon">♿</div><h3>Inclusive Learning</h3><p>सुलभ तकनीक और संकेत भाषा के प्रति जागरूकता।</p></article>
+  <article class="card feature"><div class="feature-icon">⚡</div><h3>Browser Based</h3><p>HTML, CSS, JavaScript और MediaPipe।</p></article>
+ </div>
 
-  <!-- HAND TO TEXT -->
-  <section class="page" id="hand-text">
-    <div class="page-title">
-      <span class="eyebrow">LIVE DETECTION</span>
-      <h2>Hand Language <span class="gradient-text">→ Text</span></h2>
-      <p>Allow camera access to test the live hand landmark demo.</p>
-    </div>
-    <div class="two-col">
-      <div class="panel">
-        <h3>📷 Camera preview</h3>
-        <div class="camera-box">
-          <video id="video" autoplay playsinline muted></video>
-          <canvas id="overlay"></canvas>
-        </div>
-        <div class="status" id="cameraStatus" role="status">Camera is stopped. Press Start Camera.</div>
-        <div class="actions">
-          <button class="btn primary" id="startCamera">Start Camera</button>
-          <button class="btn" id="stopCamera" disabled>Stop Camera</button>
-          <button class="btn" id="resetText">Clear Text</button>
-        </div>
-        <p class="small" style="margin-top:14px">Camera access requires localhost or HTTPS and your permission.</p>
-      </div>
-      <div class="panel">
-        <h3>📝 Detected result</h3>
-        <p>Only a few static shapes are attempted. Unknown shapes will remain unclassified.</p>
-        <div class="result-box">
-          <div class="small">CURRENT GESTURE</div>
-          <div class="result-letter" id="detectedLetter">—</div>
-          <div id="confidenceText" class="small">Waiting for a hand...</div>
-        </div>
-        <div class="field">
-          <label for="detectedText">Text output</label>
-          <textarea id="detectedText" placeholder="Recognized letters will appear here when available."></textarea>
-        </div>
-        <button class="btn" id="addSpace">Add Space</button>
-        <p class="reference-note">
-          Demo only: this classifier is not a complete ASL recognizer. It does not
-          translate full sentences, facial expressions, grammar or all alphabet gestures.
-          J and Z require motion recognition and are not implemented here.
-        </p>
-      </div>
-    </div>
-  </section>
+ <div class="grid split">
+  <article class="card">
+   <div class="feature-icon">✋</div>
+   <h2>Hand Sign → Text</h2>
+   <p>कैमरा शुरू करें, हाथ दिखाएँ और समर्थित स्थिर handshape का अनुमान देखें।</p>
+   <button class="btn primary" data-go="handtext">Open Detection →</button>
+  </article>
+  <article class="card">
+   <div class="feature-icon">🔤</div>
+   <h2>Text → Hand Sign</h2>
+   <p>अक्षर चुनें और उसके learning reference को देखें।</p>
+   <button class="btn primary" data-go="texthand">Explore Signs →</button>
+  </article>
+ </div>
 
-  <!-- TEXT TO HAND -->
-  <section class="page" id="text-hand">
-    <div class="page-title">
-      <span class="eyebrow">TEXT EXPLORER</span>
-      <h2>Text <span class="gradient-text">→ Hand Language</span></h2>
-      <p>Enter text to explore its letters. The cards below are learning placeholders, not verified sign illustrations.</p>
-    </div>
-    <div class="two-col">
-      <div class="panel">
-        <h3>Enter your text</h3>
-        <div class="field">
-          <label for="sourceText">Text to explore</label>
-          <textarea id="sourceText" placeholder="Type a word, for example: HELLO"></textarea>
-        </div>
-        <button class="btn primary" id="showLetters">Explore Letters</button>
-        <p class="small" style="margin-top:12px">This feature splits text into characters; it does not produce verified sign-language translation.</p>
-      </div>
-      <div class="panel">
-        <h3>Selected character</h3>
-        <div class="reference-hand" id="referenceHand">✋</div>
-        <h2 id="referenceLetter" style="text-align:center;color:var(--cyan)">Choose a letter</h2>
-        <p id="referenceDescription" class="reference-note">
-          Select any letter from the alphabet grid below.
-        </p>
-      </div>
-    </div>
-    <div class="panel">
-      <h3>Characters in your text</h3>
-      <div id="characterOutput" class="alphabet-grid"></div>
-    </div>
-    <div class="panel">
-      <h3>Alphabet explorer</h3>
-      <p style="margin-bottom:18px">Choose a character to inspect it. These cards show the letter, not an authoritative ASL hand pose.</p>
-      <div class="alphabet-grid" id="alphabetGrid"></div>
-    </div>
-  </section>
+ <div class="section-title"><div><h2>How It Works</h2><p>चार आसान चरण</p></div></div>
+ <div class="grid steps">
+  <article class="card"><div class="step-no">01</div><h3>Webcam</h3><p>कैमरा हाथ का वीडियो लेता है।</p></article>
+  <article class="card"><div class="step-no">02</div><h3>Landmarks</h3><p>MediaPipe हाथ के 21 points पहचानता है।</p></article>
+  <article class="card"><div class="step-no">03</div><h3>Gesture Logic</h3><p>उँगलियों की स्थिति के आधार पर अनुमान होता है।</p></article>
+  <article class="card"><div class="step-no">04</div><h3>Text Output</h3><p>स्थिर अनुमान स्क्रीन पर दिखता है।</p></article>
+ </div>
 
-  <!-- LEARN -->
-  <section class="page" id="learn">
-    <div class="page-title">
-      <span class="eyebrow">LEARNING ZONE</span>
-      <h2>Learn the <span class="gradient-text">Alphabet</span></h2>
-      <p>Select a letter to open its learning card.</p>
-    </div>
-    <div class="panel">
-      <div class="alphabet-grid" id="learnGrid"></div>
-    </div>
-    <div class="panel">
-      <h3 id="learnTitle">Start with any letter</h3>
-      <div class="reference-hand" id="learnHand">✋</div>
-      <p id="learnDescription">
-        Choose a letter above. Use a reliable ASL learning resource or qualified instructor to verify its correct handshape.
-      </p>
-      <button class="btn" data-go="text-hand">Open Text → Hand explorer</button>
-    </div>
-  </section>
+ <div class="section-title"><div><h2>Explore Alphabet</h2><p>A से Z तक सीखना शुरू करें।</p></div><button class="btn" data-go="learn">View all →</button></div>
+ <div class="grid alphabet" id="homeAlphabet"></div>
 
-  <!-- ABOUT -->
-  <section class="page" id="about">
-    <div class="page-title">
-      <span class="eyebrow">ABOUT THE PROJECT</span>
-      <h2>Technology with <span class="gradient-text">Purpose</span></h2>
-      <p>A single-file educational prototype combining camera hand tracking, a learning interface and CSS 3D effects.</p>
-    </div>
+ <div class="section-title"><div><h2>Technology</h2><p>इस प्रोजेक्ट में उपयोग की गई तकनीकें</p></div></div>
+ <div class="grid tech-grid">
+  <article class="card"><h3>🌐 HTML5</h3><p>Semantic structure</p></article>
+  <article class="card"><h3>🎨 CSS3</h3><p>Responsive design</p></article>
+  <article class="card"><h3>⚙ JavaScript</h3><p>Browser interaction</p></article>
+  <article class="card"><h3>✋ MediaPipe</h3><p>Hand landmark tracking</p></article>
+ </div>
+</section>
 
-    <div class="two-col">
-      <div class="panel">
-        <h3>⚙️ Technology stack</h3>
-        <p><strong style="color:white">HTML</strong> — page structure and navigation.</p>
-        <p><strong style="color:white">CSS</strong> — responsive layout, neon styling and 3D-style animations.</p>
-        <p><strong style="color:white">JavaScript</strong> — navigation, letter explorer, camera controls and interactions.</p>
-        <p><strong style="color:white">MediaPipe Hands</strong> — hand landmark estimation in the browser.</p>
-      </div>
-      <div class="panel">
-        <h3>🪄 Interactive 3D animation</h3>
-        <p>Move your pointer over the visual to change its perspective, or toggle its animation.</p>
-        <div class="scene3d" id="scene3d">
-          <div class="orbit one"></div>
-          <div class="orbit two"></div>
-          <div class="orbit three"></div>
-          <div class="core3d" id="core3d">
-            <div class="hand">✋</div>
-            <small>SIGNAL ACTIVE</small>
-          </div>
-          <span class="dot3d" style="top:15%;left:20%"></span>
-          <span class="dot3d" style="bottom:17%;right:15%"></span>
-          <span class="dot3d" style="top:45%;right:10%"></span>
-        </div>
-        <button class="btn primary" id="animate3d" style="margin-top:15px">✨ Animate Hand</button>
-      </div>
-    </div>
+<!-- HAND TO TEXT -->
+<section class="page" id="handtext">
+ <div class="section-title">
+  <div><span class="eyebrow">LIVE CAMERA</span><h2>Hand Language → Text</h2><p>हाथ की स्थिति से कुछ स्थिर gestures का अनुमान।</p></div>
+  <span class="pill" id="cameraStatus">● Camera Off</span>
+ </div>
 
-    <div class="panel">
-      <h3>Important limitations</h3>
-      <p>
-        This project is an educational prototype. Landmark detection does not automatically
-        mean accurate sign-language recognition. The simple classifier supports only a
-        small number of approximate static shapes. The text-to-hand feature is a character
-        explorer, not a full translation system. The 3D animation is a visual effect and
-        is not a tracked 3D hand model.
-      </p>
-      <p style="margin-top:12px">
-        Sign languages differ by region and have their own grammar. For real communication,
-        use verified learning materials and involve Deaf sign-language users and qualified instructors.
-      </p>
-    </div>
-  </section>
+ <div class="grid camera-grid">
+  <article class="card">
+   <h3>Live Camera Studio</h3>
+   <p>कैमरा तभी शुरू होगा जब आप Start Camera दबाएँगे।</p>
+   <div class="video-box">
+    <video id="video" autoplay muted playsinline aria-label="Live webcam"></video>
+    <canvas id="overlay" class="overlay"></canvas>
+    <div class="video-empty" id="videoEmpty"><div style="font-size:3rem">📷</div><strong>Camera Preview</strong><span>Start Camera दबाएँ</span></div>
+   </div>
+   <div class="actions">
+    <button class="btn green" id="startCamera">▶ Start Camera</button>
+    <button class="btn danger" id="stopCamera" disabled>■ Stop Camera</button>
+    <button class="btn yellow" id="reset">↺ Reset</button>
+   </div>
+   <div class="status" id="cameraMessage" role="status" aria-live="polite">तैयार। कैमरे की अनुमति देने के लिए Start Camera दबाएँ।</div>
+   <div class="note">अच्छी रोशनी में हाथ दिखाएँ। यह demo कुछ स्थिर handshapes के लिए heuristic rules उपयोग करता है; सभी ASL अक्षर पहचानने की गारंटी नहीं देता।</div>
+  </article>
+
+  <article class="card">
+   <h3>Detection Result</h3>
+   <div class="result-box">
+    <div class="big-letter" id="detectedLetter">—</div>
+    <strong id="detectedName">No gesture detected</strong>
+    <p id="confidence">हाथ कैमरे के सामने रखें।</p>
+   </div>
+   <p>Practice Text</p>
+   <div class="word" id="outputText" aria-label="Recognized practice text"></div>
+   <div class="actions">
+    <button class="btn primary" id="addLetter" disabled>+ Add Letter</button>
+    <button class="btn" id="addSpace">Add Space</button>
+   </div>
+   <div class="grid split" style="margin-top:15px">
+    <div class="card"><strong id="handsCount">0</strong><p>Hands detected</p></div>
+    <div class="card"><strong id="framesCount">0</strong><p>Frames processed</p></div>
+   </div>
+  </article>
+ </div>
+</section>
+
+<!-- TEXT TO HAND -->
+<section class="page" id="texthand">
+ <div class="section-title"><div><span class="eyebrow">LEARNING TOOL</span><h2>Text → Hand Language</h2><p>अक्षर लिखें या चुनें और उसका learning reference देखें।</p></div></div>
+ <article class="card">
+  <label for="letterInput">अंग्रेज़ी अक्षर A–Z या Space लिखें</label>
+  <div class="actions">
+   <input class="text-input" id="letterInput" maxlength="1" placeholder="जैसे A" style="flex:1" autocomplete="off">
+   <button class="btn yellow" id="showSign">⌕ Show Sign</button>
+  </div>
+  <div class="grid split" style="margin-top:20px">
+   <div class="sign-preview" id="signPreview"><div><div class="sign-letter">A</div><strong>Learning Reference</strong></div></div>
+   <div class="result-box">
+    <p>Selected Character</p>
+    <div class="big-letter" id="textLetter">A</div>
+    <strong id="textName">Letter A</strong>
+    <p id="textDescription">Learning reference, not a verified ASL illustration.</p>
+    <button class="btn primary" data-go="learn">Explore Alphabet →</button>
+   </div>
+  </div>
+  <div class="note">महत्वपूर्ण: इस single-file demo के SVG चित्र schematic हैं, प्रमाणित ASL sign images नहीं। सही handshape सीखने के लिए प्रशिक्षित शिक्षक या विश्वसनीय वीडियो का उपयोग करें।</div>
+ </article>
+</section>
+
+<!-- LEARN -->
+<section class="page" id="learn">
+ <div class="section-title"><div><span class="eyebrow">LEARNING LIBRARY</span><h2>ASL Alphabet Explorer</h2><p>अक्षर चुनकर learning card खोलें।</p></div></div>
+ <div class="grid alphabet" id="alphabetGrid"></div>
+ <article class="card" style="margin-top:20px">
+  <div class="grid split">
+   <div class="sign-preview" id="learnPreview"><div class="sign-letter">A</div></div>
+   <div><span class="eyebrow">SELECTED LETTER</span><h2 id="learnTitle">A — Letter A</h2><p id="learnDescription">Schematic handshape reference.</p><button class="btn primary" data-go="texthand">Open Text → Hand</button></div>
+  </div>
+ </article>
+ <div class="note">ASL alphabet में J और Z motion-based हैं। स्थिर चित्र उनका पूरा संकेत नहीं दिखाता। ये cards सीखने के लिए योजनाबद्ध references हैं, सटीक sign illustrations नहीं।</div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="about">
+ <div class="section-title"><div><span class="eyebrow">OUR MISSION</span><h2>About संकेतवाणी</h2><p>हाथों की भाषा को सीखने के लिए एक सरल डिजिटल शुरुआत।</p></div></div>
+ <article class="about">
+  <h2>हाथों की भाषा, अब हर किसी के लिए</h2>
+  <p>संकेतवाणी एक educational project है जो computer vision और sign-language learning को एक सरल browser experience में जोड़ता है। विद्यार्थी हाथ के landmarks, finger positions और gesture classification की मूल अवधारणाएँ सीख सकते हैं।</p>
+  <p>यह प्रोजेक्ट सांकेतिक भाषा के प्रति जागरूकता और accessible technology में रुचि बढ़ाने के लिए बनाया गया है। यह पूर्ण sign-language translator या प्रमाणित शिक्षण सामग्री का विकल्प नहीं है।</p>
+ </article>
+ <div class="section-title"><div><h2>Project Features</h2><p>एक फाइल में, बिना build process के।</p></div></div>
+ <div class="grid split">
+  <article class="card"><h3>📷 Hand → Text</h3><p>Browser camera, real-time landmarks, conservative static gesture rules और practice text.</p></article>
+  <article class="card"><h3>🔤 Text → Hand</h3><p>Alphabet selection और schematic SVG learning references.</p></article>
+  <article class="card"><h3>📱 Responsive</h3><p>मोबाइल और लैपटॉप के लिए responsive interface.</p></article>
+  <article class="card"><h3>🔒 Camera Control</h3><p>कैमरा केवल user action के बाद शुरू होता है और Stop पर tracks बंद होते हैं।</p></article>
+ </div>
+ <div class="section-title"><div><h2>Technology Stack</h2></div></div>
+ <div class="grid tech-grid">
+  <article class="card"><h3>HTML</h3><p>Page structure</p></article>
+  <article class="card"><h3>CSS</h3><p>Design & layout</p></article>
+  <article class="card"><h3>JavaScript</h3><p>Interaction & logic</p></article>
+  <article class="card"><h3>MediaPipe</h3><p>Hand landmarks</p></article>
+ </div>
+ <div class="note">ASL (American Sign Language) और ISL (Indian Sign Language) अलग-अलग भाषाएँ हैं। यह demo ASL alphabet सीखने के लिए एक शुरुआती शैक्षिक प्रोटोटाइप है।</div>
+</section>
+
 </main>
 
-<footer>
-  SanketVani © 2026 · Educational prototype · Built with HTML, CSS and JavaScript
-</footer>
+<footer><div class="container"><strong>संकेतवाणी</strong> · Sign Language Detection & Learning Platform<p>Internet connection required for MediaPipe CDN and model files.</p><p>Learn · Include · Empower</p></div></footer>
 
 <script>
-/* ---------- PAGE NAVIGATION ---------- */
-const pages = document.querySelectorAll(".page");
-const navButtons = document.querySelectorAll(".nav-btn");
+"use strict";
 
-function openPage(pageId) {
-  if (!document.getElementById(pageId)) return;
-  pages.forEach(page => page.classList.toggle("active", page.id === pageId));
-  navButtons.forEach(btn =>
-    btn.classList.toggle("active", btn.dataset.page === pageId)
-  );
-  window.scrollTo({ top: 0, behavior: "smooth" });
+// ---------------------------------------------------
+// SPA navigation: सभी pages इसी HTML में हैं
+// ---------------------------------------------------
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));
+ document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.go)));
+
+// ---------------------------------------------------
+// Schematic alphabet references.
+// IMPORTANT: these are not verified ASL illustrations.
+// ---------------------------------------------------
+const alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const names=Object.fromEntries([...alphabet].map(c=>[c,"Letter "+c]));
+
+// [index, middle, ring, pinky, thumb]
+// These configurations are deliberately described as schematic.
+const shapes={
+ A:[0,0,0,0,0],B:[1,1,1,1,0],C:[0,0,0,0,1],
+ D:[1,0,0,0,0],E:[0,0,0,0,0],F:[0,1,1,1,1],
+ G:[1,0,0,0,1],H:[1,1,0,0,1],I:[0,0,0,1,0],
+ J:[0,0,0,1,0],K:[1,1,0,0,1],L:[1,0,0,0,1],
+ M:[0,0,0,0,0],N:[0,0,0,0,0],O:[0,0,0,0,0],
+ P:[1,1,0,0,1],Q:[1,0,0,0,1],R:[1,1,0,0,0],
+ S:[0,0,0,0,0],T:[0,0,0,0,0],U:[1,1,0,0,0],
+ V:[1,1,0,0,0],W:[1,1,1,0,0],X:[1,0,0,0,0],
+ Y:[0,0,0,1,1],Z:[1,0,0,0,0]
+};
+
+function svgHand(letter){
+ // A simple schematic hand illustration, not an anatomical sign reference.
+ const c=shapes[letter]||[0,0,0,0,0];
+ const xs=[52,73,94,115];
+ let fingers="";
+ for(let i=0;i<4;i++){
+  let top=c[i]?[20,12,17,28][i]:72;
+  let bottom=c[i]?[90,96,96,92][i]:91;
+  fingers+=`<path d="M${xs[i]} ${bottom} V${top+10}" stroke="#dca98e" stroke-width="13" stroke-linecap="round"/>`;
+  fingers+=`<path d="M${xs[i]} ${bottom} V${top+10}" stroke="#f1c5a7" stroke-width="9" stroke-linecap="round"/>`;
+ }
+ const thumb=c[4]
+ ? "M51 82 Q26 75 28 55 Q33 46 41 58 L57 75"
+ : "M51 83 Q43 73 49 67 Q56 65 62 78";
+ return `<svg viewBox="0 0 160 130" role="img" aria-label="${letter} schematic hand reference">
+ <defs><linearGradient id="skin" x2="1" y2="1"><stop stop-color="#f6d1b5"/><stop offset="1" stop-color="#c58a72"/></linearGradient></defs>
+ ${fingers}
+ <path d="M49 76 Q45 69 47 87 L48 103 Q52 119 72 118 L111 116 Q126 114 126 98 L124 83 Q120 77 115 87 L112 95 L108 83 Q102 78 99 89 L96 97 L92 84 Q86 80 83 91 L81 98 L76 85 Q69 81 66 93 L63 102Z" fill="url(#skin)" stroke="#ffe0ca" stroke-width="1.5"/>
+ <path d="${thumb}" stroke="#f0c2a2" stroke-width="11" fill="none" stroke-linecap="round"/>
+ </svg>`;
 }
 
-navButtons.forEach(btn =>
-  btn.addEventListener("click", () => openPage(btn.dataset.page))
-);
-
-document.querySelectorAll("[data-go]").forEach(btn =>
-  btn.addEventListener("click", () => openPage(btn.dataset.go))
-);
-
-/* ---------- ALPHABET EXPLORER ---------- */
-const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-const alphabetGrid = document.getElementById("alphabetGrid");
-const learnGrid = document.getElementById("learnGrid");
-const characterOutput = document.getElementById("characterOutput");
-
-function selectReferenceLetter(letter) {
-  document.getElementById("referenceLetter").textContent = letter;
-  document.getElementById("referenceHand").textContent = "✋";
-  document.getElementById("referenceDescription").textContent =
-    `Selected character: ${letter}. This demo displays the character only; it does not provide a verified ASL handshape for this letter.`;
-
-  document.getElementById("learnTitle").textContent = `Letter ${letter}`;
-  document.getElementById("learnHand").textContent = "✋";
-  document.getElementById("learnDescription").textContent =
-    `You selected ${letter}. Use a verified ASL alphabet chart to learn its correct handshape. This prototype does not include certified handshape illustrations.`;
-
-  document.querySelectorAll(".letter-card").forEach(card =>
-    card.classList.toggle("selected", card.dataset.letter === letter)
-  );
+function makeLetterCard(letter){
+ const b=document.createElement("button");
+ b.className="letter";b.type="button";
+ b.innerHTML=`<strong>${letter}</strong><span>${letter}</span>`;
+ b.setAttribute("aria-label","Select letter "+letter);
+ b.addEventListener("click",()=>selectLearningLetter(letter));
+ return b;
 }
-
-function makeLetterCard(letter, container) {
-  const button = document.createElement("button");
-  button.className = "letter-card";
-  button.dataset.letter = letter;
-  button.innerHTML = `<b>${letter}</b><small>View letter</small>`;
-  button.addEventListener("click", () => selectReferenceLetter(letter));
-  container.appendChild(button);
+function selectLearningLetter(letter){
+ if(!alphabet.includes(letter))return;
+ document.getElementById("learnPreview").innerHTML=svgHand(letter);
+ document.getElementById("learnTitle").textContent=letter+" — "+names[letter];
+ document.getElementById("learnDescription").textContent=
+  "Schematic handshape reference for "+letter+". Not a verified ASL illustration. J and Z require movement.";
+ document.querySelectorAll(".letter").forEach(b=>b.classList.toggle("selected",b.querySelector("strong")?.textContent===letter));
+ document.getElementById("letterInput").value=letter;
+ renderTextSign(letter);
 }
+function renderGrid(id){
+ const grid=document.getElementById(id);
+ const f=document.createDocumentFragment();
+ for(const l of alphabet)f.appendChild(makeLetterCard(l));
+ grid.replaceChildren(f);
+}
+renderGrid("alphabetGrid");
+renderGrid("homeAlphabet");
+selectLearningLetter("A");
 
-alphabet.forEach(letter => {
-  makeLetterCard(letter, alphabetGrid);
-  makeLetterCard(letter, learnGrid);
+// ---------------------------------------------------
+// Text -> Hand: input validation and sign reference
+// ---------------------------------------------------
+function renderTextSign(letter){
+ document.getElementById("textLetter").textContent=letter===" "?"↔":letter;
+ document.getElementById("textName").textContent=letter===" "?"Space":names[letter];
+ document.getElementById("textDescription").textContent=
+  letter===" "?"यह शब्दों के बीच खाली जगह है।":
+  "Schematic learning reference; यह प्रमाणित ASL sign image नहीं है.";
+ document.getElementById("signPreview").innerHTML=letter===" "
+  ?'<div><div class="sign-letter">↔</div><strong>SPACE</strong><p>Word separator</p></div>'
+  :svgHand(letter)+`<div class="sign-letter">${letter}</div>`;
+}
+document.getElementById("showSign").addEventListener("click",()=>{
+ const raw=document.getElementById("letterInput").value;
+ const v=raw.toUpperCase();
+ if(v===" "){renderTextSign(" ");return}
+ if(!alphabet.includes(v)){
+  document.getElementById("textDescription").textContent="कृपया A से Z तक एक अंग्रेज़ी अक्षर दर्ज करें।";
+  return;
+ }
+ renderTextSign(v);
+});
+document.getElementById("letterInput").addEventListener("keydown",e=>{
+ if(e.key==="Enter")document.getElementById("showSign").click();
+});
+document.getElementById("letterInput").addEventListener("input",e=>{
+ e.target.value=e.target.value.slice(-1).toUpperCase();
 });
 
-document.getElementById("showLetters").addEventListener("click", () => {
-  const value = document.getElementById("sourceText").value.toUpperCase();
-  characterOutput.replaceChildren();
+// ---------------------------------------------------
+// Hand -> Text: camera and MediaPipe
+// ---------------------------------------------------
+const $=id=>document.getElementById(id);
+const video=$("video"),canvas=$("overlay"),ctx=canvas.getContext("2d");
+let model=null,stream=null,running=false,busy=false,raf=null;
+let frames=0,hands=0,word="",candidate="",stable=0,current="";
+let motion=[];
 
-  const chars = [...value].filter(ch => /[A-Z ]/.test(ch)).slice(0, 100);
-  if (!chars.length) {
-    const message = document.createElement("p");
-    message.textContent = "Type some letters first.";
-    characterOutput.appendChild(message);
-    return;
+function message(text,type=""){
+ $("cameraMessage").textContent=text;
+ $("cameraMessage").className="status "+type;
+}
+function cameraStatus(text){$("cameraStatus").textContent="● "+text}
+function clearCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height)}
+
+async function loadHands(){
+ if(model)return model;
+ if(!window.Hands)throw Error("MediaPipe CDN लोड नहीं हुआ। इंटरनेट कनेक्शन जाँचें और पेज reload करें।");
+ message("MediaPipe मॉडल लोड हो रहा है…");
+ const m=new Hands({
+  locateFile:file=>"https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/"+file
+ });
+ m.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.65,minTrackingConfidence:.6});
+ m.onResults(onResults);
+ await m.initialize();
+ model=m;
+ return model;
+}
+async function startCamera(){
+ if(running)return;
+ $("startCamera").disabled=true;
+ try{
+  await loadHands();
+  if(!navigator.mediaDevices?.getUserMedia)throw Error("कैमरा API उपलब्ध नहीं है। localhost या HTTPS पर चलाएँ।");
+  stream=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:"user",width:{ideal:640},height:{ideal:480}}});
+  video.srcObject=stream;
+  await video.play();
+  running=true;busy=false;frames=0;hands=0;motion=[];
+  $("videoEmpty").hidden=true;$("stopCamera").disabled=false;
+  cameraStatus("Camera On");message("कैमरा चालू है। हाथ दिखाएँ।","success");
+  loop();
+ }catch(e){
+  stopCamera(false);
+  let msg=e.message||"कैमरा शुरू नहीं हुआ।";
+  if(e.name==="NotAllowedError")msg="कैमरे की अनुमति नहीं मिली। Browser Site Settings में अनुमति दें।";
+  if(e.name==="NotFoundError")msg="कैमरा नहीं मिला।";
+  if(e.name==="NotReadableError")msg="कैमरा दूसरे ऐप में उपयोग हो रहा हो सकता है।";
+  message(msg,"error");cameraStatus("Camera Error");
+ }finally{$("startCamera").disabled=running}
+}
+function stopCamera(show=true){
+ running=false;busy=false;
+ if(raf!==null)cancelAnimationFrame(raf);
+ raf=null;
+ if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+ video.pause();video.srcObject=null;clearCanvas();
+ $("videoEmpty").hidden=false;$("stopCamera").disabled=true;$("startCamera").disabled=false;
+ cameraStatus("Camera Off");
+ if(show)message("कैमरा बंद कर दिया गया है।","success");
+}
+$("startCamera").addEventListener("click",startCamera);
+$("stopCamera").addEventListener("click",()=>stopCamera());
+
+function loop(){
+ if(!running)return;
+ raf=requestAnimationFrame(async()=>{
+  if(!running)return;
+  if(!busy&&video.readyState>=2){
+   busy=true;
+   try{await model.send({image:video})}
+   catch(e){if(running)message("फ्रेम प्रोसेसिंग में त्रुटि: "+e.message,"error")}
+   finally{busy=false}
   }
+  loop();
+ });
+}
 
-  chars.forEach(ch => {
-    if (ch === " ") {
-      const space = document.createElement("div");
-      space.className = "letter-card";
-      space.textContent = "SPACE";
-      characterOutput.appendChild(space);
-    } else {
-      makeLetterCard(ch, characterOutput);
-    }
-  });
+function drawHand(lm){
+ const w=canvas.width,h=canvas.height;clearCanvas();
+ const edges=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],
+ [5,9],[9,10],[10,11],[11,12],[9,13],[13,14],[14,15],[15,16],
+ [13,17],[17,18],[18,19],[19,20],[0,17]];
+ ctx.strokeStyle="#22e4ed";ctx.lineWidth=Math.max(2,w/250);
+ for(const [a,b] of edges){
+  ctx.beginPath();ctx.moveTo(lm[a].x*w,lm[a].y*h);ctx.lineTo(lm[b].x*w,lm[b].y*h);ctx.stroke();
+ }
+ lm.forEach((p,i)=>{
+  ctx.beginPath();ctx.arc(p.x*w,p.y*h,i===0?5:3.5,0,Math.PI*2);
+  ctx.fillStyle=i===0?"#ffcf48":"white";ctx.fill();
+ });
+}
 
-  const firstLetter = chars.find(ch => ch !== " ");
-  if (firstLetter) selectReferenceLetter(firstLetter);
+// Conservative static handshape heuristics, not a complete ASL classifier.
+function classify(lm){
+ if(!lm||lm.length<21)return null;
+ const tip=[4,8,12,16,20],pip=[3,6,10,14,18];
+ const extended=[false];
+ for(let i=1;i<5;i++){
+  extended.push(lm[tip[i]].y<lm[pip[i]].y-.015 &&
+   lm[tip[i]].y<lm[[0,5,9,13,17][i]].y-.035);
+ }
+ const width=Math.hypot(lm[5].x-lm[17].x,lm[5].y-lm[17].y);
+ if(width<.025)return null;
+ const thumbSpread=Math.hypot(lm[4].x-lm[2].x,lm[4].y-lm[2].y)/width;
+ const thumb=thumbSpread>.58;
+ const [_,i,m,r,p]=extended;
+
+ // Motion is tracked, but displacement alone cannot establish J or Z.
+ const now=performance.now();
+ motion.push({t:now,x:lm[8].x,y:lm[8].y});
+ motion=motion.filter(q=>now-q.t<1000);
+
+ if(i&&!m&&!r&&!p&&thumb)return "L";
+ if(i&&m&&r&&p&&!thumb)return "B";
+ if(i&&m&&r&&!p)return "W";
+ if(i&&m&&!r&&!p){
+  const sep=Math.hypot(lm[8].x-lm[12].x,lm[8].y-lm[12].y)/width;
+  if(sep>.38)return "V";
+  if(sep<.20)return "U";
+  return null;
+ }
+ if(!i&&!m&&!r&&p&&thumb)return "Y";
+ if(!i&&!m&&!r&&p&&!thumb)return "I";
+
+ // Ambiguous shapes return unknown rather than inventing a letter.
+ return null;
+}
+function resetPrediction(){
+ candidate="";stable=0;current="";
+ $("detectedLetter").textContent="—";
+ $("detectedName").textContent="Unknown Gesture";
+ $("confidence").textContent="स्पष्ट संकेत की प्रतीक्षा…";
+ $("addLetter").disabled=true;
+}
+function onResults(res){
+ if(!running)return;
+ frames++;$("framesCount").textContent=frames;
+ const w=video.videoWidth||640,h=video.videoHeight||480;
+ if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h}
+ const list=res.multiHandLandmarks||[];
+ hands=list.length;$("handsCount").textContent=hands;
+ if(!list.length){
+  clearCanvas();resetPrediction();message("हाथ नहीं दिख रहा। हाथ को कैमरे के सामने रखें।");return;
+ }
+ drawHand(list[0]);
+ const guess=classify(list[0])||"Unknown Gesture";
+ if(guess===candidate)stable++;else{candidate=guess;stable=1}
+ if(stable<5){
+  $("confidence").textContent="Stability: "+stable+"/5 frames";
+  return;
+ }
+ if(guess==="Unknown Gesture"){
+  current="";$("detectedLetter").textContent="?";
+  $("detectedName").textContent="Unknown Gesture";
+  $("confidence").textContent="अनुमान स्पष्ट नहीं है।";
+  $("addLetter").disabled=true;
+  message("इस handshape को समर्थित नियमों से स्पष्ट नहीं पहचाना गया।");
+  return;
+ }
+ current=guess;
+ $("detectedLetter").textContent=guess;
+ $("detectedName").textContent=names[guess];
+ $("confidence").textContent="5/5 स्थिर frames · heuristic estimate";
+ $("addLetter").disabled=false;
+ message("संभावित अक्षर "+guess+"। यह शैक्षिक अनुमान है, प्रमाणित अनुवाद नहीं।","success");
+}
+function updateWord(){$("outputText").textContent=word||" ";}
+
+$("addLetter").addEventListener("click",()=>{
+ if(!current)return;
+ word+=current;updateWord();message("अक्षर "+current+" जोड़ा गया।","success");
 });
-
-/* ---------- 3D INTERACTION ---------- */
-const scene3d = document.getElementById("scene3d");
-const core3d = document.getElementById("core3d");
-const animate3d = document.getElementById("animate3d");
-
-scene3d.addEventListener("pointermove", event => {
-  if (event.pointerType === "touch") return;
-  const rect = scene3d.getBoundingClientRect();
-  const x = (event.clientX - rect.left) / rect.width - 0.5;
-  const y = (event.clientY - rect.top) / rect.height - 0.5;
-  core3d.style.animation = "none";
-  core3d.style.transform =
-    `rotateY(${x * 32}deg) rotateX(${-y * 28}deg) translateZ(12px)`;
+$("addSpace").addEventListener("click",()=>{
+ if(word&&!word.endsWith(" "))word+=" ";
+ updateWord();message("Space जोड़ा गया।","success");
 });
-
-scene3d.addEventListener("pointerleave", () => {
-  core3d.style.transform = "";
-  core3d.style.animation = "";
+$("reset").addEventListener("click",()=>{
+ word="";updateWord();resetPrediction();motion=[];
+ frames=0;hands=0;$("framesCount").textContent="0";$("handsCount").textContent="0";
+ message("अभ्यास रीसेट हो गया।","success");
 });
+window.addEventListener("pagehide",()=>stopCamera(false));
 
-animate3d.addEventListener("click", () => {
-  const playing = scene3d.classList.toggle("play");
-  animate3d.textContent = playing ? "⏸ Pause Animation" : "✨ Animate Hand";
-});
-
-/* ---------- WEBCAM AND MEDIAPIPE ---------- */
-const video = document.getElementById("video");
-const overlay = document.getElementById("overlay");
-const ctx = overlay.getContext("2d");
-const cameraStatus = document.getElementById("cameraStatus");
-const detectedLetter = document.getElementById("detectedLetter");
-const confidenceText = document.getElementById("confidenceText");
-const detectedText = document.getElementById("detectedText");
-const startCameraBtn = document.getElementById("startCamera");
-const stopCameraBtn = document.getElementById("stopCamera");
-
-let handsModel = null;
-let cameraStream = null;
-let cameraRunning = false;
-let stableCandidate = "";
-let stableFrames = 0;
-let lastAddedLetter = "";
-let lastAddTime = 0;
-let frameBusy = false;
-
-function setCameraStatus(message, type = "") {
-  cameraStatus.textContent = message;
-  cameraStatus.className = "status " + type;
-}
-
-function resizeOverlay() {
-  if (!video.videoWidth || !video.videoHeight) return;
-  if (overlay.width !== video.videoWidth || overlay.height !== video.videoHeight) {
-    overlay.width = video.videoWidth;
-    overlay.height = video.videoHeight;
-  }
-}
-
-function drawHand(results) {
-  resizeOverlay();
-  ctx.clearRect(0, 0, overlay.width, overlay.height);
-
-  if (!results.multiHandLandmarks) return;
-  for (const landmarks of results.multiHandLandmarks) {
-    const connections = [
-      [0,1],[1,2],[2,3],[3,4],
-      [0,5],[5,6],[6,7],[7,8],
-      [5,9],[9,10],[10,11],[11,12],
-      [9,13],[13,14],[14,15],[15,16],
-      [13,17],[17,18],[18,19],[19,20],[0,17]
-    ];
-
-    ctx.strokeStyle = "#3ee5ff";
-    ctx.lineWidth = 3;
-    for (const [a,b] of connections) {
-      ctx.beginPath();
-      ctx.moveTo(landmarks[a].x * overlay.width, landmarks[a].y * overlay.height);
-      ctx.lineTo(landmarks[b].x * overlay.width, landmarks[b].y * overlay.height);
-      ctx.stroke();
-    }
-
-    for (const point of landmarks) {
-      ctx.beginPath();
-      ctx.arc(point.x * overlay.width, point.y * overlay.height, 4, 0, Math.PI * 2);
-      ctx.fillStyle = "#ffd166";
-      ctx.fill();
-    }
-  }
-}
-
-function fingerExtended(lm, tip, pip, mcp) {
-  // Image y coordinates increase downwards; this is only a rough heuristic.
-  return lm[tip].y < lm[pip].y && lm[pip].y < lm[mcp].y;
-}
-
-function classifyGesture(lm) {
-  const index = fingerExtended(lm, 8, 6, 5);
-  const middle = fingerExtended(lm, 12, 10, 9);
-  const ring = fingerExtended(lm, 16, 14, 13);
-  const pinky = fingerExtended(lm, 20, 18, 17);
-
-  const extendedCount = [index, middle, ring, pinky].filter(Boolean).length;
-  const thumbExtended = Math.abs(lm[4].x - lm[2].x) > 0.12;
-
-  // Approximate pose heuristics only. These are NOT a validated ASL classifier.
-  if (index && !middle && !ring && !pinky && thumbExtended) return "L";
-  if (index && middle && ring && pinky && !thumbExtended) return "B";
-  if (index && middle && ring && pinky && thumbExtended) return "W";
-  if (index && middle && !ring && !pinky) {
-    const distance = Math.hypot(lm[8].x - lm[12].x, lm[8].y - lm[12].y);
-    if (distance < 0.09) return "U";
-    return "V";
-  }
-  if (!index && !middle && !ring && pinky && thumbExtended) return "Y";
-
-  return "";
-}
-
-function onHandResults(results) {
-  drawHand(results);
-
-  if (!results.multiHandLandmarks || results.multiHandLandmarks.length === 0) {
-    detectedLetter.textContent = "—";
-    confidenceText.textContent = "No hand detected.";
-    stableCandidate = "";
-    stableFrames = 0;
-    return;
-  }
-
-  const letter = classifyGesture(results.multiHandLandmarks[0]);
-
-  if (!letter) {
-    detectedLetter.textContent = "?";
-    confidenceText.textContent = "Hand found, but gesture is unsupported or uncertain.";
-    stableCandidate = "";
-    stableFrames = 0;
-    return;
-  }
-
-  if (letter === stableCandidate) {
-    stableFrames++;
-  } else {
-    stableCandidate = letter;
-    stableFrames = 1;
-  }
-
-  detectedLetter.textContent = letter;
-  confidenceText.textContent =
-    `Approximate match · stability ${Math.min(stableFrames, 5)}/5 frames`;
-
-  if (stableFrames >= 5) {
-    const now = Date.now();
-    if (letter !== lastAddedLetter || now - lastAddTime > 1800) {
-      detectedText.value += letter;
-      lastAddedLetter = letter;
-      lastAddTime = now;
-    }
-  }
-}
-
-async function startCamera() {
-  if (cameraRunning) return;
-
-  if (!window.Hands) {
-    setCameraStatus("MediaPipe could not load. Check your internet connection and reload.", "warn");
-    return;
-  }
-
-  startCameraBtn.disabled = true;
-  setCameraStatus("Requesting camera permission...");
-
-  try {
-    cameraStream = await navigator.mediaDevices.getUserMedia({
-      video: { facingMode: "user" },
-      audio: false
-    });
-
-    video.srcObject = cameraStream;
-    await video.play();
-
-    handsModel = new Hands({
-      locateFile: file => `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
-    });
-
-    handsModel.setOptions({
-      maxNumHands: 1,
-      modelComplexity: 1,
-      minDetectionConfidence: 0.65,
-      minTrackingConfidence: 0.6
-    });
-
-    handsModel.onResults(onHandResults);
-
-    cameraRunning = true;
-    stopCameraBtn.disabled = false;
-    setCameraStatus("Camera is active. Place your hand clearly in view.", "ok");
-
-    processFrames();
-  } catch (error) {
-    console.error(error);
-    stopCamera();
-    setCameraStatus(
-      "Could not start the camera. Allow permission and use localhost or HTTPS.",
-      "warn"
-    );
-  } finally {
-    startCameraBtn.disabled = false;
-  }
-}
-
-async function processFrames() {
-  if (!cameraRunning || !handsModel) return;
-
-  if (video.readyState >= 2 && !frameBusy) {
-    frameBusy = true;
-    try {
-      await handsModel.send({ image: video });
-    } catch (error) {
-      console.error("Hand tracking error:", error);
-      setCameraStatus("Hand tracking error. Try restarting the camera.", "warn");
-    } finally {
-      frameBusy = false;
-    }
-  }
-
-  if (cameraRunning) requestAnimationFrame(processFrames);
-}
-
-function stopCamera() {
-  cameraRunning = false;
-  frameBusy = false;
-
-  if (cameraStream) {
-    cameraStream.getTracks().forEach(track => track.stop());
-    cameraStream = null;
-  }
-
-  video.pause();
-  video.srcObject = null;
-
-  if (handsModel) {
-    try { handsModel.close(); } catch (error) {}
-    handsModel = null;
-  }
-
-  ctx.clearRect(0, 0, overlay.width, overlay.height);
-  detectedLetter.textContent = "—";
-  confidenceText.textContent = "Camera stopped.";
-  startCameraBtn.disabled = false;
-  stopCameraBtn.disabled = true;
-  setCameraStatus("Camera is stopped. Press Start Camera.");
-}
-
-startCameraBtn.addEventListener("click", startCamera);
-stopCameraBtn.addEventListener("click", stopCamera);
-
-document.getElementById("resetText").addEventListener("click", () => {
-  detectedText.value = "";
-  stableCandidate = "";
-  stableFrames = 0;
-  lastAddedLetter = "";
-  lastAddTime = 0;
-});
-
-document.getElementById("addSpace").addEventListener("click", () => {
-  detectedText.value += " ";
-  lastAddedLetter = "";
-});
-
-/* Ensure camera is released if the page is closed or refreshed. */
-window.addEventListener("pagehide", stopCamera);
+updateWord();
 </script>
 </body>
 </html>
