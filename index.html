@@ -1,740 +1,607 @@
+
 <!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07162e">
+<title>संकेतवाणी | Sign Language Learning Platform</title>
 
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><title>Gram Bazar</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-tertiary-fixed-variant": "#004b73", "error-container": "#ffdad6", "primary-fixed": "#a6f4b5", "inverse-surface": "#283044", "on-tertiary-fixed": "#001d31", "on-primary-fixed-variant": "#005226", "outline": "#707a6f", "on-secondary-fixed-variant": "#7f2b00", "error": "#ba1a1a", "outline-variant": "#bfc9bd", "tertiary-fixed": "#cce5ff", "surface-container-lowest": "#ffffff", "on-tertiary-container": "#a5d4ff", "on-error": "#ffffff", "surface-bright": "#faf8ff", "on-primary": "#ffffff", "on-error-container": "#93000a", "on-surface": "#131b2e", "primary-fixed-dim": "#8bd79b", "on-secondary": "#ffffff", "on-primary-fixed": "#00210b", "on-secondary-fixed": "#370e00", "secondary-container": "#fd651e", "secondary-fixed-dim": "#ffb599", "background": "#faf8ff", "primary-container": "#166534", "surface-dim": "#d2d9f4", "primary": "#004c22", "inverse-on-surface": "#eef0ff", "surface-variant": "#dae2fd", "secondary": "#a73a00", "surface": "#faf8ff", "surface-tint": "#1f6c3a", "tertiary": "#00456a", "on-primary-container": "#93e0a2", "surface-container-highest": "#dae2fd", "secondary-fixed": "#ffdbce", "surface-container-high": "#e2e7ff", "surface-container-low": "#f2f3ff", "inverse-primary": "#8bd79b", "surface-container": "#eaedff", "tertiary-container": "#005d8e", "tertiary-fixed-dim": "#93ccff", "on-background": "#131b2e", "on-secondary-container": "#571a00", "on-surface-variant": "#404940", "on-tertiary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "space-md": "1rem", "space-sm": "0.5rem", "gutter": "1rem", "space-xl": "2.5rem", "space-xs": "0.25rem", "space-lg": "1.5rem", "margin-desktop": "2rem", "gutter-mobile": "0.5rem", "margin-mobile": "0.75rem", "margin": "1rem", "gutter-desktop": "1.25rem" }, "fontFamily": { "headline-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "display-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "title-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "display": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "title-lg": ["Plus Jakarta Sans"], "label-sm": ["Plus Jakarta Sans"] }, "fontSize": { "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }], "display-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "800" }], "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "title-sm": ["14px", { "lineHeight": "20px", "fontWeight": "600" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "display": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "title-lg": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }] } } } };</script></head><body class="bg-surface font-body-md text-body-md text-on-surface"><header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.06)]"><div class="h-28 w-full max-w-[1360px] mx-auto px-margin-desktop flex flex-col justify-between pt-2 pb-1"><div class="flex items-center justify-between gap-space-md h-16"><div class="flex items-center gap-space-lg flex-shrink-0"><a class="flex items-center gap-space-sm" data-path="home" href="#"><img alt="Gram Bazar Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VKLJiXWBItW5hdWb9G33crF0ItC8bjbb-AjAfgAFIpI8Pf-WkAqMXLBX8tlNb1HtO576nIkF-gfX7BpVmLcb9aeAngAWjLE0e7al6MKv61h8QULhpqFzryUmTh33U7bwibdQRSeXUb_pMQxlBEi-hF3stTBShlZ4HcwyGVK5_4zft5iG0SoTuKWTLSkpVU-avEUlyAiaSH0TOWbeyXBzUsKkMmhLf0H-_K8948y0QXxui7aaESwTFgus8"/><span class="font-title-lg text-title-lg font-bold text-primary tracking-tight">Gram Bazar</span></a><div class="hidden lg:flex items-center gap-1 text-on-surface-variant hover:text-primary transition-colors cursor-pointer"><span class="material-symbols-outlined text-primary text-xl">location_on</span><div class="flex flex-col text-left"><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Deliver to</span><span class="font-label-md text-label-md text-on-surface font-bold leading-tight">New Delhi 110001</span></div></div></div><div class="flex-1 max-w-2xl mx-space-md hidden sm:flex items-center"><div class="flex w-full rounded-lg bg-surface-container-low focus-within:ring-2 focus-within:ring-primary overflow-hidden"><select aria-label="Product Category" class="bg-surface-container-high text-on-surface font-label-md text-label-md px-3 py-2 outline-none cursor-pointer"><option value="all">All Categories</option><option value="grocery">Grocery &amp; Kirana</option><option value="fashion">Fashion &amp; Clothes</option><option value="electronics">Electronics</option><option value="footwear">Footwear</option><option value="home">Home &amp; Kitchen</option></select><input class="flex-1 bg-transparent px-3 py-2 text-on-surface placeholder:text-on-surface-variant/60 outline-none font-body-md text-body-md" placeholder="Search bazaar essentials, brands, local stores..." type="text"/><button class="bg-secondary hover:bg-secondary-container text-on-secondary px-5 flex items-center justify-center transition-colors" type="button"><span class="material-symbols-outlined text-xl">search</span></button></div></div><div class="flex items-center gap-space-md flex-shrink-0"><button class="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md hover:opacity-90 transition-opacity" type="button"><span class="material-symbols-outlined text-sm">auto_awesome</span><span>Ask AI</span></button><div class="flex items-center gap-1 font-label-md text-label-md text-on-surface-variant hover:text-on-surface cursor-pointer"><span class="material-symbols-outlined text-base">translate</span><span class="font-bold text-on-surface">हिंदी</span><span class="text-outline">/</span><span>Eng</span></div><a class="hidden md:flex flex-col text-left text-on-surface-variant hover:text-primary transition-colors" data-path="orders" href="#"><span class="font-label-sm text-label-sm text-on-surface-variant leading-none">Returns</span><span class="font-label-md text-label-md text-on-surface font-bold leading-tight">&amp; Orders</span></a><a class="flex items-center gap-1.5 text-on-surface hover:text-primary transition-colors relative py-1" data-path="cart" href="#"><div class="relative flex items-center"><span class="material-symbols-outlined text-2xl">shopping_cart</span><span class="absolute -top-1.5 -right-2 bg-secondary text-on-secondary font-label-sm text-label-sm w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span></div><span class="hidden lg:inline font-title-sm text-title-sm font-bold">Cart</span></a><div class="flex items-center gap-2 pl-space-xs cursor-pointer"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBil_sDj2fLIWhEcNaKt1ZU1hEnwOoaeCuj184ftAE0fw4QUv4KIktCqaApUNqknqD50ScPtoHN64ummhJlvv4c-cDl2Paic0obF3BiySMgfYf7jvrIZIiKTap0SWRgvoqy83xQs8Ek18Ak7SzE7q9_o9cKtONkvY0UFPAicGzgvrJtaCJrbQwUzmTH0TNzjLE7AsfqKq0pbs-XHK8Fs8y7rQd8ZGf3vYpBMu6YnBIkg1EQ2JFsXmVneQ"/><span class="material-symbols-outlined text-on-surface-variant text-base hidden sm:inline">expand_more</span></div></div></div><nav class="flex items-center gap-space-lg overflow-x-auto whitespace-nowrap h-10 scrollbar-none" data-active-classes="text-primary font-bold"><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="all-categories" href="#">All Categories</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="grocery-and-kirana" href="#">Grocery &amp; Kirana</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="fashion-and-clothes" href="#">Fashion &amp; Clothes</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="electronics" href="#">Electronics</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="footwear" href="#">Footwear</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="home-and-kitchen" href="#">Home &amp; Kitchen</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="best-sellers" href="#">Best Sellers</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="customer-service" href="#">Customer Service</a></nav></div></header><main class="w-full pt-28 bg-surface"><div class="flex flex-col w-full">
-<!-- Announcement Banner -->
-<aside aria-label="Special Offers" class="w-full bg-secondary text-on-secondary px-margin-mobile md:px-margin-desktop py-2.5 shadow-sm">
-<div class="max-w-[1360px] mx-auto flex flex-wrap items-center justify-between gap-2 text-center sm:text-left">
-<div class="flex items-center gap-2 mx-auto sm:mx-0">
-<span class="material-symbols-outlined text-secondary-fixed text-lg animate-bounce" style="font-variation-settings: 'FILL' 1;">bolt</span>
-<span class="font-label-md text-label-md tracking-wide">
-<strong class="font-bold uppercase tracking-wider bg-on-secondary-container text-secondary-fixed px-2 py-0.5 rounded mr-1">Dhamaka Deals</strong>
-          Get up to 60% off on Daily Essentials + Free Home Delivery above ₹499 | <span class="underline decoration-secondary-fixed decoration-2">COD Available</span>
-</span>
-</div>
-<div class="hidden lg:flex items-center gap-4 text-secondary-fixed font-label-sm text-label-sm">
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">verified</span> 100% Secure Checkout</span>
-<span class="w-1 h-1 rounded-full bg-secondary-fixed"></span>
-<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm">storefront</span> 45,000+ Local Dukaans</span>
-</div>
-</div>
-</aside>
-<!-- Hero & Value Proposition Carousel -->
-<section class="w-full max-w-[1360px] mx-auto px-margin-mobile md:px-margin-desktop pt-space-md pb-space-sm">
-<div class="relative w-full rounded-xl overflow-hidden bg-primary text-on-primary shadow-xl">
-<div class="absolute inset-0 z-0 opacity-30 mix-blend-overlay pointer-events-none" style="background-image: radial-gradient(circle at 20% 40%, #a6f4b5 0%, transparent 60%), radial-gradient(circle at 80% 80%, #fd651e 0%, transparent 50%);"></div>
-<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 min-h-[360px] lg:min-h-[440px] items-center">
-<!-- Hero Content -->
-<div class="p-space-lg lg:p-space-xl lg:col-span-7 flex flex-col justify-center">
-<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container text-on-primary-container w-fit mb-space-sm shadow-sm">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">local_mall</span>
-<span class="font-label-md text-label-md font-bold tracking-wider uppercase">Apne Bazaar Ki Online Dukaan</span>
-</div>
-<h1 class="font-display text-display font-extrabold tracking-tight leading-tight mb-space-xs text-on-primary">
-            गांव और शहर की अपनी दुकान <br/>
-<span class="text-secondary-fixed-dim">सीधे आपके द्वार!</span>
-</h1>
-<p class="font-body-lg text-body-lg text-on-primary/90 max-w-xl mb-space-lg">
-            Connect directly with verified local kiranawalas, farm-fresh produce sellers, and traditional regional artisans. Authentic products with doorstep trust.
-          </p>
-<div class="flex flex-wrap items-center gap-space-md">
-<a class="bg-secondary hover:bg-secondary-container text-on-secondary px-6 py-3.5 rounded-lg font-title-sm text-title-sm font-bold shadow-md hover:shadow-lg transition-all flex items-center gap-2 group" href="#deals-section">
-<span>Shop Now / अभी खरीदें</span>
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-lg">arrow_forward</span>
-</a>
-<a class="bg-surface-container-lowest/15 hover:bg-surface-container-lowest/25 text-on-primary px-5 py-3.5 rounded-lg font-title-sm text-title-sm font-semibold backdrop-blur-md transition-all flex items-center gap-2" href="#featured-categories">
-<span class="material-symbols-outlined text-lg">local_offer</span>
-<span>Explore Deals (बचत ऑफर्स)</span>
-</a>
-</div>
-<div class="mt-space-lg pt-space-md flex items-center gap-space-lg text-on-primary/80">
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary-fixed text-xl">payments</span>
-<span class="font-label-md text-label-md font-medium">Cash on Delivery (COD)</span>
-</div>
-<div class="flex items-center gap-2">
-<span class="material-symbols-outlined text-secondary-fixed text-xl">electric_moped</span>
-<span class="font-label-md text-label-md font-medium">Express 24h Delivery</span>
-</div>
-</div>
-</div>
-<!-- Hero Visual Mockup -->
-<div class="relative lg:col-span-5 h-72 lg:h-full min-h-[300px] flex items-center justify-center p-space-md">
-<div class="relative w-full h-full max-h-[380px] rounded-xl overflow-hidden shadow-2xl">
-<img class="w-full h-full object-cover" data-alt="A vibrant rural and semi-urban Indian marketplace display with colorful fresh farm produce, organic grains in burlap sacks, handmade clay pots, spices in copper thalis, and smiling Indian shopkeeper in traditional attire background, warm cinematic lighting, high-end retail lifestyle photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB75yFJ71T5ITt9S5ML_PMERqg3l5AAiXIBAcLW2jPazQ_I9FoFTQtyzy-yQ_Avm2TMpQUS-ZZSUwAWzPx4XMAbkTMYMqLANoksMsw2wsV9140rw1wVXz-5aKHVZV4tbG8Wqjg1Q8MnI_HBU60sB7yannL0JozK3sH-W6P_2Yppf6RMexXSXE2FhqMLTKsDkgBlIsGukIaKDkp1CZhAm2CKbw5JvdrrI5-04SEJQKWxnmNMiTTjVl_Pw"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
-<div class="absolute bottom-4 left-4 right-4 p-3 bg-surface-container-lowest/95 backdrop-blur-md rounded-lg shadow-lg flex items-center justify-between text-on-surface">
-<div class="flex items-center gap-2.5">
-<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
-<span class="material-symbols-outlined text-xl">eco</span>
-</div>
-<div>
-<p class="font-label-md text-label-md font-bold leading-tight">Shuddh Sharbati Gehun &amp; Desi Ghee</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant">Direct from Farmer Cooperatives</p>
-</div>
-</div>
-<span class="font-title-sm text-title-sm font-extrabold text-secondary">₹499/10kg</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/hands.js"></script>
+
+<style>
+:root{
+  --bg:#07162e;--panel:#102541;--panel2:#0b1d38;
+  --blue:#1677f9;--cyan:#14d5e8;--yellow:#ffcf48;
+  --white:#f5f8ff;--muted:#a9bad2;--border:#21486d;
+  --green:#20d995;--red:#ff697d
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at 80% 0,#063c6d 0,transparent 40%),var(--bg);color:var(--white);font-family:system-ui,"Noto Sans Devanagari",Arial,sans-serif;line-height:1.6}
+button,input{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--yellow);outline-offset:3px}
+.container{width:min(1160px,94%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#07162ef2;backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:76px}
+.brand{display:flex;gap:10px;align-items:center;font-size:1.25rem;font-weight:850}
+.logo{display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--cyan));color:#06172c;width:44px;height:44px;border-radius:14px;font-size:25px}
+.brand small{display:block;font-size:.67rem;color:var(--muted);font-weight:500}
+.navlinks{display:flex;flex-wrap:wrap;gap:5px}
+.navlinks button{border:0;background:transparent;color:var(--muted);padding:10px 12px;border-radius:10px}
+.navlinks button:hover,.navlinks button.active{background:#12345a;color:white}
+main{min-height:65vh}
+.page{display:none;padding-bottom:50px;animation:fade .25s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:35px;align-items:center;padding:65px 0 40px}
+.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:1px}
+h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.1;letter-spacing:-2px;margin:15px 0}
+.gradient{background:linear-gradient(100deg,#fff,var(--cyan));color:transparent;background-clip:text}
+.tagline{font-size:1.2rem;color:var(--yellow);font-weight:750}
+p{margin:8px 0;color:var(--muted)}
+.hero-art{min-height:280px;display:grid;place-items:center;position:relative;overflow:hidden;border:1px solid #167bb1;border-radius:28px;background:linear-gradient(140deg,#0b315a,#087ba7 55%,#0c3b73);box-shadow:0 20px 70px #00102080}
+.hero-hand{font-size:145px;filter:drop-shadow(0 0 20px #16d5e866);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-9px)}}
+.hero-chip{position:absolute;right:14px;bottom:16px;background:#061b38;border:1px solid var(--cyan);border-radius:15px;padding:12px 22px;text-align:center}
+.hero-chip strong{font-size:2.2rem;color:var(--yellow);display:block}
+.btn{padding:11px 17px;border:1px solid var(--border);border-radius:12px;background:#112c4c;color:white;font-weight:750;transition:.2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+.primary{background:linear-gradient(110deg,#1468e9,#08b8d5);border:0}
+.yellow{background:var(--yellow);color:#172238;border:0}
+.green{background:#087d58;border:0}
+.danger{background:#9c3044;border:0}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.grid{display:grid;gap:16px}
+.features{grid-template-columns:repeat(4,minmax(0,1fr));margin:12px 0 25px}
+.card{background:linear-gradient(145deg,#102743,#0b1e38);border:1px solid var(--border);border-radius:19px;padding:20px;box-shadow:0 12px 32px #0002;min-width:0}
+.feature-icon{font-size:2rem}
+.feature h3{margin:8px 0 4px;font-size:1rem}
+.feature p{font-size:.86rem}
+.split{grid-template-columns:1fr 1fr}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:25px 0 16px}
+h2{font-size:clamp(1.5rem,3.5vw,2.15rem);margin:0}
+h3{margin:0 0 7px}
+.pill{font-size:.78rem;color:var(--cyan);border:1px solid #1c6784;border-radius:30px;padding:5px 10px;white-space:nowrap}
+.status{font-size:.83rem;border:1px solid var(--border);padding:10px 12px;border-radius:10px;margin-top:13px;color:var(--muted);overflow-wrap:anywhere}
+.status.error{color:#ff9cab;border-color:#793747}
+.status.success{color:#6ef0bd;border-color:#1b765a}
+.camera-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(200px,.7fr);gap:15px}
+.video-box{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:14px;background:#020b18;border:1px solid #24547a}
+video,.overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+video,.overlay{transform:scaleX(-1)}
+.overlay{pointer-events:none}
+.video-empty{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:var(--muted);padding:15px}
+.big-letter{font-size:clamp(4rem,9vw,6.5rem);line-height:1.2;font-weight:900;color:var(--yellow);text-align:center}
+.result-box{background:#061b37;border:1px solid #166ba0;border-radius:15px;padding:20px;text-align:center;margin:10px 0}
+.word{padding:14px;border:1px solid var(--border);border-radius:10px;min-height:52px;overflow-wrap:anywhere;font-size:1.25rem;font-weight:800;margin-top:10px}
+.steps{grid-template-columns:repeat(4,1fr)}
+.step-no{color:var(--yellow);font-size:1.6rem;font-weight:900}
+.alphabet{grid-template-columns:repeat(7,minmax(0,1fr))}
+.letter{padding:9px 4px;text-align:center;background:#0c2542;border:1px solid var(--border);border-radius:12px;color:white}
+.letter:hover,.letter.selected{border-color:var(--cyan);background:#123c60}
+.letter strong{display:block;font-size:1.5rem;color:var(--cyan)}
+.letter span{font-size:.72rem;color:var(--muted)}
+.text-input{width:100%;min-width:0;background:#071a33;border:1px solid #315777;border-radius:11px;padding:13px;color:white}
+.text-input::placeholder{color:#8ca5c2}
+.sign-preview{min-height:220px;display:grid;place-items:center;background:#f0f5fc;color:#112541;border-radius:14px;padding:16px;text-align:center}
+.sign-preview svg{width:min(100%,240px);height:200px}
+.sign-preview .sign-letter{font-size:4rem;font-weight:900;color:#087cc1}
+.tech-grid{grid-template-columns:repeat(4,1fr)}
+.about{padding:25px;border-radius:18px;border:1px solid var(--border);background:linear-gradient(100deg,#0b2c50,#0c455d)}
+footer{border-top:1px solid var(--border);padding:24px 0;color:var(--muted);font-size:.82rem;text-align:center}
+.note{border-left:3px solid var(--yellow);background:#ffcf480b;border-radius:0 10px 10px 0;padding:12px 15px;font-size:.86rem;color:#d8e4f3;margin:15px 0}
+@media(max-width:850px){
+ .hero{grid-template-columns:1fr;padding-top:40px}.hero-art{min-height:230px}
+ .features{grid-template-columns:repeat(2,1fr)}
+ .steps{grid-template-columns:repeat(2,1fr)}
+ .alphabet{grid-template-columns:repeat(5,1fr)}
+ .camera-grid{grid-template-columns:1fr}
+ .tech-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:540px){
+ .nav{align-items:flex-start;flex-direction:column;padding:12px 0}
+ .navlinks{width:100%;overflow-x:auto;flex-wrap:nowrap}
+ .navlinks button{white-space:nowrap;font-size:.82rem;padding:8px}
+ .split{grid-template-columns:1fr}.features{gap:9px}
+ .card{padding:15px}.alphabet{grid-template-columns:repeat(4,1fr)}
+ .hero-art{min-height:210px}.hero-hand{font-size:110px}
+ .steps{gap:9px}.section-title{align-items:flex-start;flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="container nav">
+  <div class="brand"><div class="logo">✋</div><div>संकेतवाणी<small>Sign Language Detection & Learning Platform</small></div></div>
+  <nav class="navlinks" aria-label="Main navigation">
+   <button class="active" data-page="home">⌂ Home</button>
+   <button data-page="handtext">✋ Hand → Text</button>
+   <button data-page="texthand">▣ Text → Hand</button>
+   <button data-page="learn">▤ Learn</button>
+   <button data-page="about">ⓘ About</button>
+  </nav>
+ </div>
+</header>
+
+<main class="container">
+
+<!-- HOME / LANDING PAGE -->
+<section class="page active" id="home">
+ <div class="hero">
+  <div>
+   <span class="eyebrow">LEARN · PRACTICE · CONNECT</span>
+   <h1>संकेतवाणी <span class="gradient">.</span></h1>
+   <p class="tagline">हाथों की भाषा, अब हर किसी के लिए</p>
+   <p>संकेतवाणी एक शैक्षिक वेब प्लेटफॉर्म है जो आपको हाथों के संकेतों, ASL alphabet और hand landmark detection की बुनियादी जानकारी देता है।</p>
+   <div class="actions">
+    <button class="btn yellow" data-go="handtext">▶ Start Exploring</button>
+    <button class="btn" data-go="about">Learn More</button>
+   </div>
+  </div>
+  <div class="hero-art" aria-label="हाथ के संकेतों का illustration">
+   <div class="hero-hand">🤚</div>
+   <div class="hero-chip"><strong>A–Z</strong><span>Learn & Practice</span></div>
+  </div>
+ </div>
+
+ <div class="grid features">
+  <article class="card feature"><div class="feature-icon">📷</div><h3>Real-time Detection</h3><p>वेबकैम से हाथ के landmarks ट्रैक करें।</p></article>
+  <article class="card feature"><div class="feature-icon">📖</div><h3>Learn ASL Alphabet</h3><p>A–Z अक्षरों का अभ्यास करें।</p></article>
+  <article class="card feature"><div class="feature-icon">♿</div><h3>Inclusive Learning</h3><p>सुलभ तकनीक और संकेत भाषा के प्रति जागरूकता।</p></article>
+  <article class="card feature"><div class="feature-icon">⚡</div><h3>Browser Based</h3><p>HTML, CSS, JavaScript और MediaPipe।</p></article>
+ </div>
+
+ <div class="grid split">
+  <article class="card">
+   <div class="feature-icon">✋</div>
+   <h2>Hand Sign → Text</h2>
+   <p>कैमरा शुरू करें, हाथ दिखाएँ और समर्थित स्थिर handshape का अनुमान देखें।</p>
+   <button class="btn primary" data-go="handtext">Open Detection →</button>
+  </article>
+  <article class="card">
+   <div class="feature-icon">🔤</div>
+   <h2>Text → Hand Sign</h2>
+   <p>अक्षर चुनें और उसके learning reference को देखें।</p>
+   <button class="btn primary" data-go="texthand">Explore Signs →</button>
+  </article>
+ </div>
+
+ <div class="section-title"><div><h2>How It Works</h2><p>चार आसान चरण</p></div></div>
+ <div class="grid steps">
+  <article class="card"><div class="step-no">01</div><h3>Webcam</h3><p>कैमरा हाथ का वीडियो लेता है।</p></article>
+  <article class="card"><div class="step-no">02</div><h3>Landmarks</h3><p>MediaPipe हाथ के 21 points पहचानता है।</p></article>
+  <article class="card"><div class="step-no">03</div><h3>Gesture Logic</h3><p>उँगलियों की स्थिति के आधार पर अनुमान होता है।</p></article>
+  <article class="card"><div class="step-no">04</div><h3>Text Output</h3><p>स्थिर अनुमान स्क्रीन पर दिखता है।</p></article>
+ </div>
+
+ <div class="section-title"><div><h2>Explore Alphabet</h2><p>A से Z तक सीखना शुरू करें।</p></div><button class="btn" data-go="learn">View all →</button></div>
+ <div class="grid alphabet" id="homeAlphabet"></div>
+
+ <div class="section-title"><div><h2>Technology</h2><p>इस प्रोजेक्ट में उपयोग की गई तकनीकें</p></div></div>
+ <div class="grid tech-grid">
+  <article class="card"><h3>🌐 HTML5</h3><p>Semantic structure</p></article>
+  <article class="card"><h3>🎨 CSS3</h3><p>Responsive design</p></article>
+  <article class="card"><h3>⚙ JavaScript</h3><p>Browser interaction</p></article>
+  <article class="card"><h3>✋ MediaPipe</h3><p>Hand landmark tracking</p></article>
+ </div>
 </section>
-<!-- Trust Badges Strip -->
-<section aria-label="Trust Factors" class="w-full max-w-[1360px] mx-auto px-margin-mobile md:px-margin-desktop py-space-md">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm md:gap-space-md">
-<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center gap-3">
-<div class="w-11 h-11 rounded-lg bg-primary-fixed/60 flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-2xl">local_shipping</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-sm text-title-sm font-bold text-on-surface truncate">Fast Home Delivery</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">घर तक सुरक्षित डिलीवरी</span>
-</div>
-</div>
-<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center gap-3">
-<div class="w-11 h-11 rounded-lg bg-secondary-fixed/70 flex items-center justify-center text-secondary flex-shrink-0">
-<span class="material-symbols-outlined text-2xl">payments</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-sm text-title-sm font-bold text-on-surface truncate">Cash on Delivery</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">हाथ में सामान, फिर भुगतान</span>
-</div>
-</div>
-<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center gap-3">
-<div class="w-11 h-11 rounded-lg bg-tertiary-fixed flex items-center justify-center text-tertiary flex-shrink-0">
-<span class="material-symbols-outlined text-2xl">currency_exchange</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-sm text-title-sm font-bold text-on-surface truncate">7-Day Easy Returns</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">बिना झंझट आसान वापसी</span>
-</div>
-</div>
-<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex items-center gap-3">
-<div class="w-11 h-11 rounded-lg bg-primary-fixed/60 flex items-center justify-center text-primary flex-shrink-0">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified</span>
-</div>
-<div class="flex flex-col min-w-0">
-<span class="font-title-sm text-title-sm font-bold text-on-surface truncate">100% Genuine Dukaan</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">प्रमाणित स्थानीय व्यापारी</span>
-</div>
-</div>
-</div>
+
+<!-- HAND TO TEXT -->
+<section class="page" id="handtext">
+ <div class="section-title">
+  <div><span class="eyebrow">LIVE CAMERA</span><h2>Hand Language → Text</h2><p>हाथ की स्थिति से कुछ स्थिर gestures का अनुमान।</p></div>
+  <span class="pill" id="cameraStatus">● Camera Off</span>
+ </div>
+
+ <div class="grid camera-grid">
+  <article class="card">
+   <h3>Live Camera Studio</h3>
+   <p>कैमरा तभी शुरू होगा जब आप Start Camera दबाएँगे।</p>
+   <div class="video-box">
+    <video id="video" autoplay muted playsinline aria-label="Live webcam"></video>
+    <canvas id="overlay" class="overlay"></canvas>
+    <div class="video-empty" id="videoEmpty"><div style="font-size:3rem">📷</div><strong>Camera Preview</strong><span>Start Camera दबाएँ</span></div>
+   </div>
+   <div class="actions">
+    <button class="btn green" id="startCamera">▶ Start Camera</button>
+    <button class="btn danger" id="stopCamera" disabled>■ Stop Camera</button>
+    <button class="btn yellow" id="reset">↺ Reset</button>
+   </div>
+   <div class="status" id="cameraMessage" role="status" aria-live="polite">तैयार। कैमरे की अनुमति देने के लिए Start Camera दबाएँ।</div>
+   <div class="note">अच्छी रोशनी में हाथ दिखाएँ। यह demo कुछ स्थिर handshapes के लिए heuristic rules उपयोग करता है; सभी ASL अक्षर पहचानने की गारंटी नहीं देता।</div>
+  </article>
+
+  <article class="card">
+   <h3>Detection Result</h3>
+   <div class="result-box">
+    <div class="big-letter" id="detectedLetter">—</div>
+    <strong id="detectedName">No gesture detected</strong>
+    <p id="confidence">हाथ कैमरे के सामने रखें।</p>
+   </div>
+   <p>Practice Text</p>
+   <div class="word" id="outputText" aria-label="Recognized practice text"></div>
+   <div class="actions">
+    <button class="btn primary" id="addLetter" disabled>+ Add Letter</button>
+    <button class="btn" id="addSpace">Add Space</button>
+   </div>
+   <div class="grid split" style="margin-top:15px">
+    <div class="card"><strong id="handsCount">0</strong><p>Hands detected</p></div>
+    <div class="card"><strong id="framesCount">0</strong><p>Frames processed</p></div>
+   </div>
+  </article>
+ </div>
 </section>
-<!-- Featured Categories Grid -->
-<section aria-labelledby="cat-heading" class="w-full max-w-[1360px] mx-auto px-margin-mobile md:px-margin-desktop py-space-lg" id="featured-categories">
-<div class="flex items-end justify-between mb-space-md">
-<div>
-<span class="font-label-md text-label-md font-bold text-primary uppercase tracking-wider">Explore Apni Mandi</span>
-<h2 class="font-headline-md text-headline-md font-bold text-on-surface" id="cat-heading">Top Categories • मुख्य श्रेणियां</h2>
-</div>
-<a class="font-label-lg text-label-lg text-primary hover:text-primary-container font-bold flex items-center gap-1 group" href="#">
-<span>View All</span>
-<span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-</a>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm md:gap-space-md">
-<!-- Cat 1 -->
-<a class="group bg-surface-container-lowest rounded-xl p-space-sm flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all" href="#">
-<div class="w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Traditional Indian grocery pulses lentils rice sacks and spices fresh grocery store setup, bright studio product style on subtle neutral warm backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnXAgf_D9RMQqR6_q7HPZ_9_6RdkZe3LcpCcRk10eDsPHbC9HLt3uYv0qc_4LmTFKgtUR6bX_9wRvshlL1yPqQzYozvPAS_AyvdILiwq_PxtdMWzEOyQE_ePu6VZ7ZVRErx8t3y7yVgi-g15HUOsT0Vkk4rR5ANgJyihD-LDe9TjgMaGnRub7oyqU4vNhDj4sSir63moF_TSsKiIiRrsax4FD04MlWrtpoPVobw2BCLwrhoZHgWj2Z6w"/>
-<span class="absolute top-2 left-2 bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded">Up to 40% Off</span>
-</div>
-<span class="font-title-sm text-title-sm font-bold text-on-surface group-hover:text-primary transition-colors">Grocery &amp; Kirana</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">किराना और राशन</span>
-</a>
-<!-- Cat 2 -->
-<a class="group bg-surface-container-lowest rounded-xl p-space-sm flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all" href="#">
-<div class="w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Neatly arranged traditional Indian ethnic wear including festive kurtas sarees and cotton shirts, vibrant colors, studio lighting photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABfgMSkdYDlfRiGyrRmMkNuY9jsasSi2bPcgVVSG-tDa9y1APIEXE2UFdsC6YnwDLRZNSxcU9ruuxxRIXq7lkVghvUpgfi1Xaq7pvBWV-cBeAnbvO9BJ3KBe_kqLmOiZ73wQpry0L48wghhUHNGPa_DKQJqhlH6NK3pN2SwTv0DTO81OXH_KoWbKn3NAWHtwx8RtyH5LRP4QhQb9E5PzSBPByxt1g1jicuFnS6GVp2CtcmJJ_jpWMfww"/>
-<span class="absolute top-2 left-2 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.5 rounded">Min 50% Off</span>
-</div>
-<span class="font-title-sm text-title-sm font-bold text-on-surface group-hover:text-primary transition-colors">Fashion &amp; Clothes</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">कपड़े और परिधान</span>
-</a>
-<!-- Cat 3 -->
-<a class="group bg-surface-container-lowest rounded-xl p-space-sm flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all" href="#">
-<div class="w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Budget friendly smartphones powerbanks neckbands and wireless earphones neatly displayed on sleek podium, modern tech gadget commercial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT3x-xHY5xI29vVfS-PMsX2z-3pL3zCJGTw9CtpQj4ImRrcQk60S8ICO9agRDPbiPfT6eOjVAqAGtljKjqQR-9xJFdRzGnaKISmpLC-JtKybiWfyMFYrEm4ro5t482Yw4eMg4vq4aLrNTvNHaaD9NPk8rsiZtdiLuhHYb-W4_IjZeALm8ssAO5EHDDBde4A1mIOfTBLbhOOnUHGnO3qSNU8-5xg0_94-PM66coy__l026XVo5L7KZsTQ"/>
-<span class="absolute top-2 left-2 bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded">Best Deals</span>
-</div>
-<span class="font-title-sm text-title-sm font-bold text-on-surface group-hover:text-primary transition-colors">Electronics &amp; Mobiles</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">मोबाइल और गैजेट्स</span>
-</a>
-<!-- Cat 4 -->
-<a class="group bg-surface-container-lowest rounded-xl p-space-sm flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all" href="#">
-<div class="w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Durable casual sports running shoes leather sandals and comfortable slippers placed on clean display stand with warm side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaLzDMwHR1troQtcvPi3vbhzuk_D9GPlD3ateDcFiONkLxWako85p5HoP4HgJO0zgm0RF-rFPvQZj2U64qHxT7JZqQ9Le8H5sSIBZVs6uxNg-mEmGsHTcvWkqFcKQI9Pgy7uQKemYbkvGuy9nXmYgFolvIbyG6FsZXxPKpmdvXzsbpLUQVcAgzzKI4RNNGtxzc5mSYV7S8lNWEe9B-9b4ipJ6tU5pfPCUy8PLU3IhF9jyjc82-U55uyQ"/>
-<span class="absolute top-2 left-2 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.5 rounded">Under ₹499</span>
-</div>
-<span class="font-title-sm text-title-sm font-bold text-on-surface group-hover:text-primary transition-colors">Footwear Collection</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">जूते और चप्पल</span>
-</a>
-<!-- Cat 5 -->
-<a class="group bg-surface-container-lowest rounded-xl p-space-sm flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all" href="#">
-<div class="w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Stainless steel cookware utensils pressure cooker brass kitchen items sparkling clean on kitchen counter, warm home lifestyle shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxRYj72SsUsLhUhqymj2VbYLosYIAqtZsO7eQpIYhBv-Q4M2QndvUxFRpoPBGx2dgT36CgassJC0nhYr960XcMmZsrHyf8ru41ORXwsi_qhFtVHIt00cl3VDXTqVFtlaw-2RvVtqbgCgWriktwe95RSnpeOlp-In5vJ6f_vL24q7r4qQO5ZSc4E-wIluXmNo9Ya_Wov_4KmDAhLgO0YRKsIk_Jf8jKeC88j7uTAYdgkdnKbeGyCsalXw"/>
-<span class="absolute top-2 left-2 bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded">Combo Offers</span>
-</div>
-<span class="font-title-sm text-title-sm font-bold text-on-surface group-hover:text-primary transition-colors">Home &amp; Kitchen</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">रसोई का सामान</span>
-</a>
-<!-- Cat 6 -->
-<a class="group bg-surface-container-lowest rounded-xl p-space-sm flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all" href="#">
-<div class="w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs relative">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Traditional Indian handcrafted pottery brass lamps handloom textiles and terracotta decorative handicrafts, artistic cultural product composition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf8nxqX2c2kiuYNGSZ6NsQSurlftsuADfHby-d6unCFwXGRieok-LgMcEvEweYSAVXSRV5HBptws_EsHHpiTa6keya1pJBJSwZdW0w8WRlGrGBCjkC5R3cVfrXNJkYZ6U0M6bO4y5k_SQIbLCMwlHs80YaWmNFTG9YC4HVCwE2qsy-bcS4AVTZRRwsLavrO8hgMOLGZm6sb6rFUWju6UvsqOEbp4pGZi9JEA0rkqswsOTQbQdcR4UW1w"/>
-<span class="absolute top-2 left-2 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.5 rounded">Vocal for Local</span>
-</div>
-<span class="font-title-sm text-title-sm font-bold text-on-surface group-hover:text-primary transition-colors">Artisan Specialties</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">स्थानीय हस्तशिल्प</span>
-</a>
-</div>
+
+<!-- TEXT TO HAND -->
+<section class="page" id="texthand">
+ <div class="section-title"><div><span class="eyebrow">LEARNING TOOL</span><h2>Text → Hand Language</h2><p>अक्षर लिखें या चुनें और उसका learning reference देखें।</p></div></div>
+ <article class="card">
+  <label for="letterInput">अंग्रेज़ी अक्षर A–Z या Space लिखें</label>
+  <div class="actions">
+   <input class="text-input" id="letterInput" maxlength="1" placeholder="जैसे A" style="flex:1" autocomplete="off">
+   <button class="btn yellow" id="showSign">⌕ Show Sign</button>
+  </div>
+  <div class="grid split" style="margin-top:20px">
+   <div class="sign-preview" id="signPreview"><div><div class="sign-letter">A</div><strong>Learning Reference</strong></div></div>
+   <div class="result-box">
+    <p>Selected Character</p>
+    <div class="big-letter" id="textLetter">A</div>
+    <strong id="textName">Letter A</strong>
+    <p id="textDescription">Learning reference, not a verified ASL illustration.</p>
+    <button class="btn primary" data-go="learn">Explore Alphabet →</button>
+   </div>
+  </div>
+  <div class="note">महत्वपूर्ण: इस single-file demo के SVG चित्र schematic हैं, प्रमाणित ASL sign images नहीं। सही handshape सीखने के लिए प्रशिक्षित शिक्षक या विश्वसनीय वीडियो का उपयोग करें।</div>
+ </article>
 </section>
-<!-- Deals of the Day (24-Hour Flash Sale Section) -->
-<section aria-labelledby="deals-heading" class="w-full max-w-[1360px] mx-auto px-margin-mobile md:px-margin-desktop py-space-md" id="deals-section">
-<div class="bg-surface-container-low rounded-2xl p-space-md md:p-space-lg shadow-sm">
-<!-- Section Header with Countdown -->
-<div class="flex flex-wrap items-center justify-between gap-space-md mb-space-lg pb-space-sm">
-<div class="flex items-center gap-space-sm">
-<div class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-on-secondary shadow-md">
-<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">timer</span>
-</div>
-<div>
-<div class="flex items-center gap-2">
-<h2 class="font-headline-md text-headline-md font-bold text-on-surface" id="deals-heading">Deals of the Day</h2>
-<span class="hidden sm:inline px-2 py-0.5 rounded bg-error-container text-on-error-container font-label-sm text-label-sm font-bold">24H ONLY</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface-variant">आज के सबसे बड़े डिस्काउंट ऑफर्स • समाप्त होने से पहले खरीदें</p>
-</div>
-</div>
-<!-- Interactive JS Timer display -->
-<div class="flex items-center gap-2 bg-surface-container-lowest px-3 py-2 rounded-lg shadow-sm">
-<span class="font-label-sm text-label-sm font-bold text-on-surface-variant uppercase">Ends in:</span>
-<div class="flex items-center gap-1 font-mono font-bold text-on-surface">
-<span class="bg-surface-container-high px-2 py-1 rounded text-primary text-title-sm font-bold" id="timer-hours">07</span>
-<span>:</span>
-<span class="bg-surface-container-high px-2 py-1 rounded text-primary text-title-sm font-bold" id="timer-mins">34</span>
-<span>:</span>
-<span class="bg-surface-container-high px-2 py-1 rounded text-secondary text-title-sm font-bold" id="timer-secs">19</span>
-</div>
-</div>
-</div>
-<!-- 4-Card Product Grid -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
-<!-- Product 1 -->
-<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative group">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container-high overflow-hidden mb-space-sm">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Pure golden cold pressed mustard oil in glass bottle with mustard flowers and seeds, traditional kachi ghani product photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvyeAP3gIktqH-2HKojoj7XdXApO1HUgaIaZpRA1ETkspH_aiw_TK82G8YI5w6CU6mTwn1EKi_ck-GAo_pyC1zmpMlVGKb-IBfAjCBcRXKpl3M_LyQRDhJgBoJ6mrCXsDoziMnrLqCejof6iiAhFq1ZF5Nlsn4JSWwKubeDMo6EhRulDIfXkwvGYU9LTWzBb7fiaUSxU2zPmnuuu4PeTLFik0sbnpVCYnaQ6zVrl5eGdTOSC7OR53v6A"/>
-<span class="absolute top-2 left-2 bg-secondary text-on-secondary font-label-sm text-label-sm font-bold px-2 py-0.5 rounded">45% OFF</span>
-<button aria-label="Add to Wishlist" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-colors shadow">
-<span class="material-symbols-outlined text-lg">favorite</span>
-</button>
-<span class="absolute bottom-2 left-2 bg-error-container text-on-error-container font-label-sm text-label-sm font-bold px-2 py-0.5 rounded flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span> Only 4 left!
-            </span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Shree Ram Kirana Store</span>
-<h3 class="font-title-md text-title-md font-bold text-on-surface line-clamp-1 mt-0.5">Shuddh Kachi Ghani Mustard Oil (5L)</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">शुद्ध सरसों का तेल - कच्ची घानी</p>
-<div class="flex items-center gap-1.5 mb-2">
-<div class="flex items-center gap-0.5 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold px-1.5 py-0.5 rounded">
-<span>4.6</span>
-<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(1,420 ratings)</span>
-</div>
-<div class="flex items-baseline gap-2 mb-3">
-<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">₹629</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹1,150</span>
-<span class="font-label-sm text-label-sm font-bold text-secondary">Save ₹521</span>
-</div>
-</div>
-<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 rounded-lg font-title-sm text-title-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95" onclick="handleAddToCart(this)">
-<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
-<span>कार्ट में डालें / Add to Cart</span>
-</button>
-</article>
-<!-- Product 2 -->
-<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative group">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container-high overflow-hidden mb-space-sm">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Premium long grain royal basmati rice pack in rustic jute cloth bag design with authentic stamp, culinary commercial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBE2vMC7S9FpwH281FeMWuf0K121Jbs-piARAHr67feWNaZQtn8Pgy2MrP6yJRu-CPLLf52jn1vNF6YllsD4UVe9hxV00-MpG9iTh1nwrMdxzSjZpzaMuKSMGbEftY5_R6kY80r5lAKIfzrU-38MNS8F70LzexOCTpL2E8QVIKlUvZOFm9nvKuhkcLWg_I3uzA2jNBtpo6qrUnF1--Tiy6dmHbM4rnT_IC0h2hOtd4frpVwygT-GgBJYQ"/>
-<span class="absolute top-2 left-2 bg-secondary text-on-secondary font-label-sm text-label-sm font-bold px-2 py-0.5 rounded">38% OFF</span>
-<button aria-label="Add to Wishlist" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-colors shadow">
-<span class="material-symbols-outlined text-lg">favorite</span>
-</button>
-<span class="absolute bottom-2 left-2 bg-primary-fixed text-on-primary-fixed font-label-sm text-label-sm font-bold px-2 py-0.5 rounded">
-              Super Fast 2h Delivery
-            </span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Brijwasi Grains &amp; Spices</span>
-<h3 class="font-title-md text-title-md font-bold text-on-surface line-clamp-1 mt-0.5">Royal Daawat Basmati Rice (5kg Pack)</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">स्वादिष्ट लंबा दाना बासमती चावल</p>
-<div class="flex items-center gap-1.5 mb-2">
-<div class="flex items-center gap-0.5 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold px-1.5 py-0.5 rounded">
-<span>4.8</span>
-<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(2,890)</span>
-</div>
-<div class="flex items-baseline gap-2 mb-3">
-<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">₹449</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹725</span>
-<span class="font-label-sm text-label-sm font-bold text-secondary">Save ₹276</span>
-</div>
-</div>
-<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 rounded-lg font-title-sm text-title-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95" onclick="handleAddToCart(this)">
-<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
-<span>कार्ट में डालें / Add to Cart</span>
-</button>
-</article>
-<!-- Product 3 -->
-<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative group">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container-high overflow-hidden mb-space-sm">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Traditional Indian copper water jug dispenser with hand embossed patterns on clean dining wooden table, crisp light warm tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALm0zmUwkRKKTvIojOwADCT6X2Sq7oo9iNwyjV4O947wU0LCjuNNtfwEfn7_ZAjYP8cdr9Tl8k0pRSCycxKdonLxiAUOfBBNJ42i4Ggpu4AeL-ReK2mE8wK5bfMt9zI7lG0LWMXoXD1dbxQ5LvNlgvkJ2YIwI1Q86elvBqPwELpUFaMc5ty40usp7MaonQOwJ5MRSwC6t7Xeo5_9sO8iwoTW3HRjg1n-I1ettbjUE0ToTa8VoMna9iJw"/>
-<span class="absolute top-2 left-2 bg-secondary text-on-secondary font-label-sm text-label-sm font-bold px-2 py-0.5 rounded">52% OFF</span>
-<button aria-label="Add to Wishlist" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-colors shadow">
-<span class="material-symbols-outlined text-lg">favorite</span>
-</button>
-<span class="absolute bottom-2 left-2 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold px-2 py-0.5 rounded">
-              Handcrafted Local
-            </span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Moradabad Metal Handicrafts</span>
-<h3 class="font-title-md text-title-md font-bold text-on-surface line-clamp-1 mt-0.5">Pure Ayurvedic Hammered Copper Jug (2L)</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">शुद्ध तांबे का पानी का जग</p>
-<div class="flex items-center gap-1.5 mb-2">
-<div class="flex items-center gap-0.5 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold px-1.5 py-0.5 rounded">
-<span>4.5</span>
-<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(872)</span>
-</div>
-<div class="flex items-baseline gap-2 mb-3">
-<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">₹599</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹1,250</span>
-<span class="font-label-sm text-label-sm font-bold text-secondary">Save ₹651</span>
-</div>
-</div>
-<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 rounded-lg font-title-sm text-title-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95" onclick="handleAddToCart(this)">
-<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
-<span>कार्ट में डालें / Add to Cart</span>
-</button>
-</article>
-<!-- Product 4 -->
-<article class="bg-surface-container-lowest rounded-xl p-space-md flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative group">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container-high overflow-hidden mb-space-sm">
-<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="High quality wireless bluetooth earphones in charging case with long battery display label, clean commercial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKbK4xk9Wilb0Nn8a3-MjhZ4KENLDvKtLvA72q79uT0eTF8LwyizkJto36DC0mRoq8tZQq628F6nZnjnrLQ8pF2DNPqRfU3938T5ac_IEvSZY-zHLdz3RsLMdIZDP0ZQoe_QUCG6ndD62ZkdGn2xdjFt93uDS4A_aGuAoRUewvXx2aucbTkU9AmDfo8zUNtzFf7RriOj6-B3HNZJLdK3jtiZ7-vkXMs-Pgy_Yr9nBR8ME4ssQ00Wv44w"/>
-<span class="absolute top-2 left-2 bg-secondary text-on-secondary font-label-sm text-label-sm font-bold px-2 py-0.5 rounded">60% OFF</span>
-<button aria-label="Add to Wishlist" class="absolute top-2 right-2 w-8 h-8 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest flex items-center justify-center text-on-surface-variant hover:text-error transition-colors shadow">
-<span class="material-symbols-outlined text-lg">favorite</span>
-</button>
-<span class="absolute bottom-2 left-2 bg-error-container text-on-error-container font-label-sm text-label-sm font-bold px-2 py-0.5 rounded">
-              Bestseller #1
-            </span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Bhartiya Tech Hub</span>
-<h3 class="font-title-md text-title-md font-bold text-on-surface line-clamp-1 mt-0.5">True Wireless Earbuds with 50H Playtime</h3>
-<p class="font-body-sm text-body-sm text-on-surface-variant mb-2">दमदार बास और क्रिस्टल क्लियर कॉलिंग</p>
-<div class="flex items-center gap-1.5 mb-2">
-<div class="flex items-center gap-0.5 bg-primary-container text-on-primary font-label-sm text-label-sm font-bold px-1.5 py-0.5 rounded">
-<span>4.4</span>
-<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(4,190)</span>
-</div>
-<div class="flex items-baseline gap-2 mb-3">
-<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">₹799</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹1,999</span>
-<span class="font-label-sm text-label-sm font-bold text-secondary">Save ₹1,200</span>
-</div>
-</div>
-<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-2.5 rounded-lg font-title-sm text-title-sm font-bold flex items-center justify-center gap-2 shadow-sm transition-all active:scale-95" onclick="handleAddToCart(this)">
-<span class="material-symbols-outlined text-lg">add_shopping_cart</span>
-<span>कार्ट में डालें / Add to Cart</span>
-</button>
-</article>
-</div>
-</div>
+
+<!-- LEARN -->
+<section class="page" id="learn">
+ <div class="section-title"><div><span class="eyebrow">LEARNING LIBRARY</span><h2>ASL Alphabet Explorer</h2><p>अक्षर चुनकर learning card खोलें।</p></div></div>
+ <div class="grid alphabet" id="alphabetGrid"></div>
+ <article class="card" style="margin-top:20px">
+  <div class="grid split">
+   <div class="sign-preview" id="learnPreview"><div class="sign-letter">A</div></div>
+   <div><span class="eyebrow">SELECTED LETTER</span><h2 id="learnTitle">A — Letter A</h2><p id="learnDescription">Schematic handshape reference.</p><button class="btn primary" data-go="texthand">Open Text → Hand</button></div>
+  </div>
+ </article>
+ <div class="note">ASL alphabet में J और Z motion-based हैं। स्थिर चित्र उनका पूरा संकेत नहीं दिखाता। ये cards सीखने के लिए योजनाबद्ध references हैं, सटीक sign illustrations नहीं।</div>
 </section>
-<!-- Gram Bazar Smart AI Assistant Feature Widget -->
-<section aria-labelledby="ai-heading" class="w-full max-w-[1360px] mx-auto px-margin-mobile md:px-margin-desktop py-space-md">
-<div class="bg-gradient-to-r from-tertiary-container via-tertiary to-primary-container rounded-2xl p-space-lg text-on-tertiary shadow-lg relative overflow-hidden">
-<div class="absolute -right-8 -bottom-8 w-64 h-64 bg-on-tertiary/10 rounded-full blur-2xl pointer-events-none"></div>
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-center relative z-10">
-<div class="lg:col-span-7">
-<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-lowest/20 backdrop-blur-md text-on-tertiary font-label-sm text-label-sm font-bold mb-space-sm">
-<span class="material-symbols-outlined text-sm">auto_awesome</span>
-<span>Gram Bazar AI Sahayak • आपका निजी सहायक</span>
-</div>
-<h2 class="font-headline-lg text-headline-lg font-extrabold leading-tight mb-space-xs" id="ai-heading">
-            कुछ भी पूछें, अपनी भाषा में!
-          </h2>
-<p class="font-body-md text-body-md text-on-tertiary/90 max-w-xl mb-space-md">
-            "Find the purest ghee under ₹500" or "₹1000 ke andar best kitchen combo khojein". Voice and text search designed for your convenience.
-          </p>
-<div class="flex flex-wrap gap-2 text-on-surface">
-<button class="bg-surface-container-lowest/90 hover:bg-surface-container-lowest px-3 py-1.5 rounded-full font-label-md text-label-md font-semibold transition-colors flex items-center gap-1 shadow-sm" onclick="fillAiQuery('₹500 ke andar sabse badiya Desi Ghee')">
-<span class="material-symbols-outlined text-xs text-primary">search</span>
-              "₹500 ke andar Desi Ghee"
-            </button>
-<button class="bg-surface-container-lowest/90 hover:bg-surface-container-lowest px-3 py-1.5 rounded-full font-label-md text-label-md font-semibold transition-colors flex items-center gap-1 shadow-sm" onclick="fillAiQuery('Top rated Basmati Rice 10kg with COD')">
-<span class="material-symbols-outlined text-xs text-primary">search</span>
-              "Basmati Rice 10kg COD"
-            </button>
-<button class="bg-surface-container-lowest/90 hover:bg-surface-container-lowest px-3 py-1.5 rounded-full font-label-md text-label-md font-semibold transition-colors flex items-center gap-1 shadow-sm" onclick="fillAiQuery('Local Moradabad Brass Diyas set for Pooja')">
-<span class="material-symbols-outlined text-xs text-primary">search</span>
-              "Local Brass Pooja Diyas"
-            </button>
-</div>
-</div>
-<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-space-md shadow-xl text-on-surface">
-<label class="font-title-sm text-title-sm font-bold block mb-1.5 flex items-center justify-between" for="ai-prompt-input">
-<span>Ask Gram Bazar AI</span>
-<span class="font-label-sm text-label-sm text-primary flex items-center gap-0.5">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              Online 24/7
-            </span>
-</label>
-<div class="relative flex items-center mb-3">
-<input class="w-full bg-surface-container-low px-4 py-3 rounded-lg text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-primary pr-20" id="ai-prompt-input" placeholder="Type or tap suggestions above..." type="text"/>
-<button aria-label="Voice input" class="absolute right-10 text-on-surface-variant hover:text-primary transition-colors p-1" type="button">
-<span class="material-symbols-outlined text-xl">mic</span>
-</button>
-<button aria-label="Submit AI prompt" class="absolute right-2 bg-primary hover:bg-primary-container text-on-primary w-8 h-8 rounded-md flex items-center justify-center transition-colors" onclick="submitAiQuery()" type="button">
-<span class="material-symbols-outlined text-lg">arrow_upward</span>
-</button>
-</div>
-<div class="p-2.5 rounded-lg bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm flex items-start gap-2" id="ai-response-box">
-<span class="material-symbols-outlined text-primary text-base flex-shrink-0 mt-0.5">smart_toy</span>
-<p id="ai-response-text">Namaste! Main aapki sahayata ke liye tayar hoon. Local dukaan ki deals ya product jaankaari ke liye poochiye.</p>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ABOUT -->
+<section class="page" id="about">
+ <div class="section-title"><div><span class="eyebrow">OUR MISSION</span><h2>About संकेतवाणी</h2><p>हाथों की भाषा को सीखने के लिए एक सरल डिजिटल शुरुआत।</p></div></div>
+ <article class="about">
+  <h2>हाथों की भाषा, अब हर किसी के लिए</h2>
+  <p>संकेतवाणी एक educational project है जो computer vision और sign-language learning को एक सरल browser experience में जोड़ता है। विद्यार्थी हाथ के landmarks, finger positions और gesture classification की मूल अवधारणाएँ सीख सकते हैं।</p>
+  <p>यह प्रोजेक्ट सांकेतिक भाषा के प्रति जागरूकता और accessible technology में रुचि बढ़ाने के लिए बनाया गया है। यह पूर्ण sign-language translator या प्रमाणित शिक्षण सामग्री का विकल्प नहीं है।</p>
+ </article>
+ <div class="section-title"><div><h2>Project Features</h2><p>एक फाइल में, बिना build process के।</p></div></div>
+ <div class="grid split">
+  <article class="card"><h3>📷 Hand → Text</h3><p>Browser camera, real-time landmarks, conservative static gesture rules और practice text.</p></article>
+  <article class="card"><h3>🔤 Text → Hand</h3><p>Alphabet selection और schematic SVG learning references.</p></article>
+  <article class="card"><h3>📱 Responsive</h3><p>मोबाइल और लैपटॉप के लिए responsive interface.</p></article>
+  <article class="card"><h3>🔒 Camera Control</h3><p>कैमरा केवल user action के बाद शुरू होता है और Stop पर tracks बंद होते हैं।</p></article>
+ </div>
+ <div class="section-title"><div><h2>Technology Stack</h2></div></div>
+ <div class="grid tech-grid">
+  <article class="card"><h3>HTML</h3><p>Page structure</p></article>
+  <article class="card"><h3>CSS</h3><p>Design & layout</p></article>
+  <article class="card"><h3>JavaScript</h3><p>Interaction & logic</p></article>
+  <article class="card"><h3>MediaPipe</h3><p>Hand landmarks</p></article>
+ </div>
+ <div class="note">ASL (American Sign Language) और ISL (Indian Sign Language) अलग-अलग भाषाएँ हैं। यह demo ASL alphabet सीखने के लिए एक शुरुआती शैक्षिक प्रोटोटाइप है।</div>
 </section>
-<!-- Best Sellers Grid (High SKU density) -->
-<section aria-labelledby="bestsellers-heading" class="w-full max-w-[1360px] mx-auto px-margin-mobile md:px-margin-desktop py-space-lg">
-<div class="flex items-center justify-between mb-space-md">
-<div>
-<span class="font-label-md text-label-md font-bold text-primary uppercase tracking-wider">Most Loved by Customers</span>
-<h2 class="font-headline-md text-headline-md font-bold text-on-surface" id="bestsellers-heading">Best Sellers • सबसे ज्यादा बिकने वाले सामान</h2>
-</div>
-<div class="flex gap-2">
-<button class="px-3 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md font-bold shadow-sm">All</button>
-<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors shadow-sm">Kirana</button>
-<button class="px-3 py-1.5 rounded-full bg-surface-container-lowest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-colors shadow-sm">Home Needs</button>
-</div>
-</div>
-<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-space-sm md:gap-space-md">
-<!-- Item 1 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs">
-<img class="w-full h-full object-cover" data-alt="Traditional pure cow desi ghee in glass jar with golden spoon pouring rich texture, authentic kitchen background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNFAG6EFzEhoY8RQQ8vmRnrwi4tfwSAqGrG2dKLe31eK8vXS64dO446GVzFJuM6qEbf6RXjJVDHsXxtjYaGCzKmkKnJvqzRY1Uc_B4iXPDdIe5Bd4869lsgVeM5zM304cG1X2i6JD1ZDTIoVXZDgoetzzf_l9CZSIeBlZvsTDSfAsTcok_fl_IF9sxrczQKMxc-6A-yrAieS2e0SbbSK-6qZfK0smSHamUa_JF0DOvy3-AlO5-Xqf7qg"/>
-<span class="absolute top-1.5 left-1.5 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.2 rounded">Save 35%</span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Vedic Dairy Farm</span>
-<h4 class="font-title-sm text-title-sm font-bold text-on-surface truncate">Desi Bilona Cow Ghee 1L</h4>
-<div class="flex items-center gap-1 my-1">
-<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm font-bold text-on-surface">4.9</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(920)</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-title-md text-title-md font-extrabold text-on-surface">₹580</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹890</span>
-</div>
-</div>
-<button class="mt-2 w-full py-1.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-label-sm text-label-sm font-bold transition-colors" onclick="handleAddToCart(this)">
-          + Add
-        </button>
-</div>
-<!-- Item 2 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs">
-<img class="w-full h-full object-cover" data-alt="Whole spices collection turmeric sticks cloves star anise cumin in earthen bowls, vibrant organic spice presentation" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiIIAIHQsbZniBFkeXReFX-i6yc453oSPMygsa-izswYUjgGV_9CCczY34-kdmZ_ywG8ZNHNSbR_06TBGAG7arzj9NDq8wZv6W-yhwrQ65R01Kwz2baFZUdCQmnMPhhblFZ8UXz6GQnJGhmduOL-ADH4wNcjwrV26C6itanvp7yqsy0HwZ1m7gPsGS71xhO5A38LQ7rCA1F9VmuatgI4V-KJwBeqCnzKUrrNuiXN0w1SRWD5L2VwV25g"/>
-<span class="absolute top-1.5 left-1.5 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.2 rounded">Save 28%</span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Malabar Spices</span>
-<h4 class="font-title-sm text-title-sm font-bold text-on-surface truncate">Sabut Masala Combo Pack (500g)</h4>
-<div class="flex items-center gap-1 my-1">
-<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm font-bold text-on-surface">4.7</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(630)</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-title-md text-title-md font-extrabold text-on-surface">₹320</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹445</span>
-</div>
-</div>
-<button class="mt-2 w-full py-1.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-label-sm text-label-sm font-bold transition-colors" onclick="handleAddToCart(this)">
-          + Add
-        </button>
-</div>
-<!-- Item 3 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs">
-<img class="w-full h-full object-cover" data-alt="Soft handloom cotton bath towels stack neatly folded in pastel shades, premium cotton fabric texture shot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkeQR_xvyEDBJ3H7SRMTJiuZ_DVtH8MsDPr6I4a0Zd0j3lsdgED101bpTUoiCcm7RPPUWoozPXcGTpA9Z47x9jrLhxmaQe4_slPg-dyNNcIiXjzhUVFAmLc_nK2XhL5fLWdClBKj_CpoV1zpAj0Akya968Y8OuaqhyN1metO9EYg9SJZzX9wdmwE1_XC9C-1r-B-dxfGrwT_8n29LWWZCiBfWZ5UzVvSpuG0L3I2B-Eoje-5CvcvTVoA"/>
-<span class="absolute top-1.5 left-1.5 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.2 rounded">Save 40%</span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Khadi Handloom Co.</span>
-<h4 class="font-title-sm text-title-sm font-bold text-on-surface truncate">Pure Cotton Gamchha &amp; Towel Set</h4>
-<div class="flex items-center gap-1 my-1">
-<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm font-bold text-on-surface">4.6</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(1,110)</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-title-md text-title-md font-extrabold text-on-surface">₹249</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹415</span>
-</div>
-</div>
-<button class="mt-2 w-full py-1.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-label-sm text-label-sm font-bold transition-colors" onclick="handleAddToCart(this)">
-          + Add
-        </button>
-</div>
-<!-- Item 4 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs">
-<img class="w-full h-full object-cover" data-alt="Traditional heavy cast iron roti tawa with wooden heat resistant handle on gas burner setup, clean kitchen food prep photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5tMarKuDR2eyWGFFLPl0h4hoaUGMlJxCctr1GpB1uVYWBIXGqA_rv4KthIuRZtOGdNcPSznuu7M219e4FxjwZDMIrW8JZcjHulnh9cf2RupPotOi79XgT94eyqe_p9HVOQ19atUpxxk8N732O5PMoHGbiFkx8MpLZMu1rE49qqBwaE43Prla1sW4NE1ZTR-bp3Z2Qpcr_M_xbjJCa41t4eDNOJM56ANkW7wk2KUQBIElsgmNcbbrsig"/>
-<span class="absolute top-1.5 left-1.5 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.2 rounded">Save 50%</span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Loha Shilp Works</span>
-<h4 class="font-title-sm text-title-sm font-bold text-on-surface truncate">Pre-Seasoned Cast Iron Tawa</h4>
-<div class="flex items-center gap-1 my-1">
-<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm font-bold text-on-surface">4.8</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(840)</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-title-md text-title-md font-extrabold text-on-surface">₹499</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹999</span>
-</div>
-</div>
-<button class="mt-2 w-full py-1.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-label-sm text-label-sm font-bold transition-colors" onclick="handleAddToCart(this)">
-          + Add
-        </button>
-</div>
-<!-- Item 5 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs">
-<img class="w-full h-full object-cover" data-alt="Natural organic honey jar surrounded by raw honeycomb and wooden honey dipper, warm sunrise light aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyXsX27nnpP4dRbUt0xvSdAU77ifWuUcDB070tWVPtH8PibzAwCQxcJD499qOQx2TNrN2xztAXh08I_b_vwR9-echXZwYjnZPtQg9fdAnOvqpk_B1lznJIwmNB1Yo0PO6GGmotHgaGZGqi8gTkpOP3hqwa8wKn_3GD3-3Mvvp3AQfY8PcF2Idml8hmfc5o4hQB3N0G7Q4PURNmzrHd5dQIUMdBM3C02wt8RZLgLqkVKNZpf5UGcn0x-w"/>
-<span class="absolute top-1.5 left-1.5 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.2 rounded">Save 22%</span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Sundarban Organics</span>
-<h4 class="font-title-sm text-title-sm font-bold text-on-surface truncate">Raw Forest Wild Honey (500g)</h4>
-<div class="flex items-center gap-1 my-1">
-<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm font-bold text-on-surface">4.9</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(1,540)</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-title-md text-title-md font-extrabold text-on-surface">₹389</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹499</span>
-</div>
-</div>
-<button class="mt-2 w-full py-1.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-label-sm text-label-sm font-bold transition-colors" onclick="handleAddToCart(this)">
-          + Add
-        </button>
-</div>
-<!-- Item 6 -->
-<div class="bg-surface-container-lowest rounded-xl p-space-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-<div class="relative w-full aspect-square rounded-lg bg-surface-container overflow-hidden mb-space-xs">
-<img class="w-full h-full object-cover" data-alt="Eco friendly steel insulated water bottle with temperature display cap in matte olive green finish on desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATrRrlAwd4EbOVXwC94B1MsCCXJsva-qppTzSaMlTlRS0mBFh74V4oiBFRKuX22m_qfqGS595yUgstW8TecrEaRo2EuDpb0JLVgj6w_mmhIwmyifUauvrdYSujn4FluANJ5TaS9FNiCa2JEeCRQNbs-tufSnKdtCWk3GhKe855HbHJWaP4fMyhHw4KAAIRZzbZHrVL939O8kbKIqVHMIte08RjoEZOCeSHHhK2pOAO0CkGx4SLkm2ICg"/>
-<span class="absolute top-1.5 left-1.5 bg-secondary text-on-secondary text-[10px] font-bold px-1.5 py-0.2 rounded">Save 45%</span>
-</div>
-<div>
-<span class="font-body-sm text-body-sm text-on-surface-variant">Kisan Utensils</span>
-<h4 class="font-title-sm text-title-sm font-bold text-on-surface truncate">Stainless Steel Hot &amp; Cold Flask 1L</h4>
-<div class="flex items-center gap-1 my-1">
-<span class="material-symbols-outlined text-secondary text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="font-label-sm text-label-sm font-bold text-on-surface">4.5</span>
-<span class="font-body-sm text-body-sm text-on-surface-variant">(790)</span>
-</div>
-<div class="flex items-baseline gap-1">
-<span class="font-title-md text-title-md font-extrabold text-on-surface">₹440</span>
-<span class="font-body-sm text-body-sm text-outline line-through">₹800</span>
-</div>
-</div>
-<button class="mt-2 w-full py-1.5 bg-surface-container-high hover:bg-primary hover:text-on-primary text-on-surface rounded font-label-sm text-label-sm font-bold transition-colors" onclick="handleAddToCart(this)">
-          + Add
-        </button>
-</div>
-</div>
-</section>
-<!-- Local Dukaan Spotlight & Bharat Trust Testimonials -->
-<section aria-labelledby="seller-spotlight-heading" class="w-full max-w-[1360px] mx-auto px-margin-mobile md:px-margin-desktop py-space-lg mb-space-md">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
-<!-- Merchant Spotlight Bento Card -->
-<div class="lg:col-span-7 bg-surface-container-lowest rounded-2xl p-space-lg shadow-sm flex flex-col justify-between">
-<div>
-<div class="flex items-center justify-between mb-space-md">
-<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-secondary bg-secondary-fixed px-2.5 py-1 rounded">Seller Spotlight • हमारे गर्व</span>
-<span class="flex items-center gap-1 text-primary font-label-sm text-label-sm font-bold">
-<span class="material-symbols-outlined text-base">verified</span> Verified Dukaan Partner
-            </span>
-</div>
-<div class="flex flex-col sm:flex-row items-center gap-space-md mb-space-md">
-<div class="w-24 h-24 rounded-full overflow-hidden flex-shrink-0 shadow-md">
-<img class="w-full h-full object-cover" data-alt="Portrait of middle aged Indian shopkeeper Ramesh Kumar wearing a neat Nehru jacket in front of his well-stocked grocery dukaan in Varanasi, warm genuine smile, professional documentary photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA5sXn17BxdOusRuuHGYIKKzucE1vkjYTPg8EuoZgc_ME97BE0ef_cSdkByiOfIYgbsr_jEJcZ9zk5kP0kdLHTFzI0RrzV7A3L21cNUuT63S6-B9jQ9yzV4NRjbXjZI6V1mf99SbFfOCIs6gRY2XSOHZLddU3ZpFQIDlMBOOHw1aOVKVMMvGKKirRzpgi9ZvRT4TzL_cHMSAW6btX3w2_0IaDNQYUN5YOvGVYCRCAK0dnGwgccJhABjA"/>
-</div>
-<div>
-<h3 class="font-title-lg text-title-lg font-bold text-on-surface" id="seller-spotlight-heading">Meet Ramesh Kumar from Varanasi</h3>
-<p class="font-body-sm text-body-sm text-primary font-semibold mb-1">Ramesh Kirana &amp; Banarasi Masale (5,200+ Delivered Orders)</p>
-<p class="font-body-md text-body-md text-on-surface-variant">
-                "Gram Bazar se judkar meri dukaan ab aas-paas ke 45 gaon tak pahunch chuki hai. Payments sidhe bank account me aati hain aur grahak COD ki suvidha se khush hain."
-              </p>
-</div>
-</div>
-</div>
-<div class="grid grid-cols-3 gap-space-sm pt-space-md bg-surface-container-low p-space-sm rounded-xl text-center">
-<div>
-<span class="font-headline-sm text-headline-sm font-extrabold text-primary">5,200+</span>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Orders Fulfilled</p>
-</div>
-<div>
-<span class="font-headline-sm text-headline-sm font-extrabold text-secondary">4.9/5</span>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Customer Rating</p>
-</div>
-<div>
-<span class="font-headline-sm text-headline-sm font-extrabold text-on-surface">45 Gaon</span>
-<p class="font-label-sm text-label-sm text-on-surface-variant">Pincode Coverage</p>
-</div>
-</div>
-</div>
-<!-- Customer Trust & Reviews -->
-<div class="lg:col-span-5 bg-primary-container text-on-primary rounded-2xl p-space-lg shadow-sm flex flex-col justify-between">
-<div>
-<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-primary-fixed mb-space-xs inline-block">Customer Voices</span>
-<h3 class="font-headline-sm text-headline-sm font-bold text-on-primary mb-space-md">Bharosa Bharat Ke Har Kone Ka</h3>
-<div class="space-y-space-md">
-<div class="bg-surface-container-lowest/10 backdrop-blur-sm p-space-sm rounded-xl">
-<div class="flex items-center gap-1 text-secondary-fixed mb-1">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-primary/90 italic">
-                "Shudh sarson tel aur gehun seedhe gaon ke bhandar se mila. Delivery bhi agle hi din aa gayi bina kisi delivery charge ke."
-              </p>
-<div class="mt-2 flex items-center justify-between text-on-primary/75 font-label-sm text-label-sm">
-<span class="font-bold text-on-primary">Sunita Devi, Gorakhpur</span>
-<span>Verified Buyer</span>
-</div>
-</div>
-<div class="bg-surface-container-lowest/10 backdrop-blur-sm p-space-sm rounded-xl">
-<div class="flex items-center gap-1 text-secondary-fixed mb-1">
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star_half</span>
-</div>
-<p class="font-body-sm text-body-sm text-on-primary/90 italic">
-                "Cash on Delivery ka option sabse badiya hai. Pehle samaan dekho, fir paise do. Bilkul dukaan jaisa anubhav."
-              </p>
-<div class="mt-2 flex items-center justify-between text-on-primary/75 font-label-sm text-label-sm">
-<span class="font-bold text-on-primary">Manoj Yadav, Rohtak</span>
-<span>Verified Buyer</span>
-</div>
-</div>
-</div>
-</div>
-<a class="mt-space-md inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-surface-container-lowest text-primary font-title-sm text-title-sm font-bold shadow hover:bg-surface-container-high transition-colors" href="#">
-<span>Apni Dukaan Gram Bazar Par Kholein</span>
-<span class="material-symbols-outlined text-lg">store</span>
-</a>
-</div>
-</div>
-</section>
-<!-- Floating Toast Notification on Cart Action -->
-<div class="fixed bottom-6 right-6 z-50 bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3 transition-transform duration-300 translate-y-32 opacity-0 pointer-events-none" id="cart-toast">
-<span class="material-symbols-outlined text-primary-fixed text-2xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-<div>
-<p class="font-label-md text-label-md font-bold text-inverse-on-surface">Item added to your basket!</p>
-<p class="font-body-sm text-body-sm text-inverse-on-surface/80">सामान कार्ट में जोड़ दिया गया है</p>
-</div>
-</div>
-</div>
+
+</main>
+
+<footer><div class="container"><strong>संकेतवाणी</strong> · Sign Language Detection & Learning Platform<p>Internet connection required for MediaPipe CDN and model files.</p><p>Learn · Include · Empower</p></div></footer>
+
 <script>
-  // Countdown Timer Logic
-  let hours = 7, minutes = 34, seconds = 19;
-  const timerH = document.getElementById('timer-hours');
-  const timerM = document.getElementById('timer-mins');
-  const timerS = document.getElementById('timer-secs');
+"use strict";
 
-  setInterval(() => {
-    if (seconds > 0) {
-      seconds--;
-    } else {
-      seconds = 59;
-      if (minutes > 0) {
-        minutes--;
-      } else {
-        minutes = 59;
-        if (hours > 0) hours--;
-      }
-    }
-    if (timerH) timerH.textContent = String(hours).padStart(2, '0');
-    if (timerM) timerM.textContent = String(minutes).padStart(2, '0');
-    if (timerS) timerS.textContent = String(seconds).padStart(2, '0');
-  }, 1000);
+// ---------------------------------------------------
+// SPA navigation: सभी pages इसी HTML में हैं
+// ---------------------------------------------------
+function showPage(id){
+ document.querySelectorAll(".page").forEach(p=>p.classList.toggle("active",p.id===id));
+ document.querySelectorAll("[data-page]").forEach(b=>b.classList.toggle("active",b.dataset.page===id));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("[data-page]").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.page)));
+document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>showPage(b.dataset.go)));
 
-  // Add to Cart Micro-interaction
-  function handleAddToCart(btn) {
-    const originalText = btn.innerHTML;
-    btn.innerHTML = `<span class="material-symbols-outlined text-lg animate-spin">refresh</span><span>जोड़ा जा रहा है...</span>`;
-    btn.disabled = true;
+// ---------------------------------------------------
+// Schematic alphabet references.
+// IMPORTANT: these are not verified ASL illustrations.
+// ---------------------------------------------------
+const alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const names=Object.fromEntries([...alphabet].map(c=>[c,"Letter "+c]));
 
-    setTimeout(() => {
-      btn.innerHTML = `<span class="material-symbols-outlined text-lg">check</span><span>Added / जुड़ गया</span>`;
-      btn.classList.remove('bg-primary', 'hover:bg-primary-container');
-      btn.classList.add('bg-primary-container');
+// [index, middle, ring, pinky, thumb]
+// These configurations are deliberately described as schematic.
+const shapes={
+ A:[0,0,0,0,0],B:[1,1,1,1,0],C:[0,0,0,0,1],
+ D:[1,0,0,0,0],E:[0,0,0,0,0],F:[0,1,1,1,1],
+ G:[1,0,0,0,1],H:[1,1,0,0,1],I:[0,0,0,1,0],
+ J:[0,0,0,1,0],K:[1,1,0,0,1],L:[1,0,0,0,1],
+ M:[0,0,0,0,0],N:[0,0,0,0,0],O:[0,0,0,0,0],
+ P:[1,1,0,0,1],Q:[1,0,0,0,1],R:[1,1,0,0,0],
+ S:[0,0,0,0,0],T:[0,0,0,0,0],U:[1,1,0,0,0],
+ V:[1,1,0,0,0],W:[1,1,1,0,0],X:[1,0,0,0,0],
+ Y:[0,0,0,1,1],Z:[1,0,0,0,0]
+};
 
-      const toast = document.getElementById('cart-toast');
-      if (toast) {
-        toast.classList.remove('translate-y-32', 'opacity-0', 'pointer-events-none');
-        setTimeout(() => {
-          toast.classList.add('translate-y-32', 'opacity-0', 'pointer-events-none');
-        }, 3200);
-      }
+function svgHand(letter){
+ // A simple schematic hand illustration, not an anatomical sign reference.
+ const c=shapes[letter]||[0,0,0,0,0];
+ const xs=[52,73,94,115];
+ let fingers="";
+ for(let i=0;i<4;i++){
+  let top=c[i]?[20,12,17,28][i]:72;
+  let bottom=c[i]?[90,96,96,92][i]:91;
+  fingers+=`<path d="M${xs[i]} ${bottom} V${top+10}" stroke="#dca98e" stroke-width="13" stroke-linecap="round"/>`;
+  fingers+=`<path d="M${xs[i]} ${bottom} V${top+10}" stroke="#f1c5a7" stroke-width="9" stroke-linecap="round"/>`;
+ }
+ const thumb=c[4]
+ ? "M51 82 Q26 75 28 55 Q33 46 41 58 L57 75"
+ : "M51 83 Q43 73 49 67 Q56 65 62 78";
+ return `<svg viewBox="0 0 160 130" role="img" aria-label="${letter} schematic hand reference">
+ <defs><linearGradient id="skin" x2="1" y2="1"><stop stop-color="#f6d1b5"/><stop offset="1" stop-color="#c58a72"/></linearGradient></defs>
+ ${fingers}
+ <path d="M49 76 Q45 69 47 87 L48 103 Q52 119 72 118 L111 116 Q126 114 126 98 L124 83 Q120 77 115 87 L112 95 L108 83 Q102 78 99 89 L96 97 L92 84 Q86 80 83 91 L81 98 L76 85 Q69 81 66 93 L63 102Z" fill="url(#skin)" stroke="#ffe0ca" stroke-width="1.5"/>
+ <path d="${thumb}" stroke="#f0c2a2" stroke-width="11" fill="none" stroke-linecap="round"/>
+ </svg>`;
+}
 
-      setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.disabled = false;
-        btn.classList.remove('bg-primary-container');
-        btn.classList.add('bg-primary', 'hover:bg-primary-container');
-      }, 4000);
-    }, 600);
+function makeLetterCard(letter){
+ const b=document.createElement("button");
+ b.className="letter";b.type="button";
+ b.innerHTML=`<strong>${letter}</strong><span>${letter}</span>`;
+ b.setAttribute("aria-label","Select letter "+letter);
+ b.addEventListener("click",()=>selectLearningLetter(letter));
+ return b;
+}
+function selectLearningLetter(letter){
+ if(!alphabet.includes(letter))return;
+ document.getElementById("learnPreview").innerHTML=svgHand(letter);
+ document.getElementById("learnTitle").textContent=letter+" — "+names[letter];
+ document.getElementById("learnDescription").textContent=
+  "Schematic handshape reference for "+letter+". Not a verified ASL illustration. J and Z require movement.";
+ document.querySelectorAll(".letter").forEach(b=>b.classList.toggle("selected",b.querySelector("strong")?.textContent===letter));
+ document.getElementById("letterInput").value=letter;
+ renderTextSign(letter);
+}
+function renderGrid(id){
+ const grid=document.getElementById(id);
+ const f=document.createDocumentFragment();
+ for(const l of alphabet)f.appendChild(makeLetterCard(l));
+ grid.replaceChildren(f);
+}
+renderGrid("alphabetGrid");
+renderGrid("homeAlphabet");
+selectLearningLetter("A");
+
+// ---------------------------------------------------
+// Text -> Hand: input validation and sign reference
+// ---------------------------------------------------
+function renderTextSign(letter){
+ document.getElementById("textLetter").textContent=letter===" "?"↔":letter;
+ document.getElementById("textName").textContent=letter===" "?"Space":names[letter];
+ document.getElementById("textDescription").textContent=
+  letter===" "?"यह शब्दों के बीच खाली जगह है।":
+  "Schematic learning reference; यह प्रमाणित ASL sign image नहीं है.";
+ document.getElementById("signPreview").innerHTML=letter===" "
+  ?'<div><div class="sign-letter">↔</div><strong>SPACE</strong><p>Word separator</p></div>'
+  :svgHand(letter)+`<div class="sign-letter">${letter}</div>`;
+}
+document.getElementById("showSign").addEventListener("click",()=>{
+ const raw=document.getElementById("letterInput").value;
+ const v=raw.toUpperCase();
+ if(v===" "){renderTextSign(" ");return}
+ if(!alphabet.includes(v)){
+  document.getElementById("textDescription").textContent="कृपया A से Z तक एक अंग्रेज़ी अक्षर दर्ज करें।";
+  return;
+ }
+ renderTextSign(v);
+});
+document.getElementById("letterInput").addEventListener("keydown",e=>{
+ if(e.key==="Enter")document.getElementById("showSign").click();
+});
+document.getElementById("letterInput").addEventListener("input",e=>{
+ e.target.value=e.target.value.slice(-1).toUpperCase();
+});
+
+// ---------------------------------------------------
+// Hand -> Text: camera and MediaPipe
+// ---------------------------------------------------
+const $=id=>document.getElementById(id);
+const video=$("video"),canvas=$("overlay"),ctx=canvas.getContext("2d");
+let model=null,stream=null,running=false,busy=false,raf=null;
+let frames=0,hands=0,word="",candidate="",stable=0,current="";
+let motion=[];
+
+function message(text,type=""){
+ $("cameraMessage").textContent=text;
+ $("cameraMessage").className="status "+type;
+}
+function cameraStatus(text){$("cameraStatus").textContent="● "+text}
+function clearCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height)}
+
+async function loadHands(){
+ if(model)return model;
+ if(!window.Hands)throw Error("MediaPipe CDN लोड नहीं हुआ। इंटरनेट कनेक्शन जाँचें और पेज reload करें।");
+ message("MediaPipe मॉडल लोड हो रहा है…");
+ const m=new Hands({
+  locateFile:file=>"https://cdn.jsdelivr.net/npm/@mediapipe/hands@0.4.1675469240/"+file
+ });
+ m.setOptions({maxNumHands:1,modelComplexity:1,minDetectionConfidence:.65,minTrackingConfidence:.6});
+ m.onResults(onResults);
+ await m.initialize();
+ model=m;
+ return model;
+}
+async function startCamera(){
+ if(running)return;
+ $("startCamera").disabled=true;
+ try{
+  await loadHands();
+  if(!navigator.mediaDevices?.getUserMedia)throw Error("कैमरा API उपलब्ध नहीं है। localhost या HTTPS पर चलाएँ।");
+  stream=await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:"user",width:{ideal:640},height:{ideal:480}}});
+  video.srcObject=stream;
+  await video.play();
+  running=true;busy=false;frames=0;hands=0;motion=[];
+  $("videoEmpty").hidden=true;$("stopCamera").disabled=false;
+  cameraStatus("Camera On");message("कैमरा चालू है। हाथ दिखाएँ।","success");
+  loop();
+ }catch(e){
+  stopCamera(false);
+  let msg=e.message||"कैमरा शुरू नहीं हुआ।";
+  if(e.name==="NotAllowedError")msg="कैमरे की अनुमति नहीं मिली। Browser Site Settings में अनुमति दें।";
+  if(e.name==="NotFoundError")msg="कैमरा नहीं मिला।";
+  if(e.name==="NotReadableError")msg="कैमरा दूसरे ऐप में उपयोग हो रहा हो सकता है।";
+  message(msg,"error");cameraStatus("Camera Error");
+ }finally{$("startCamera").disabled=running}
+}
+function stopCamera(show=true){
+ running=false;busy=false;
+ if(raf!==null)cancelAnimationFrame(raf);
+ raf=null;
+ if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+ video.pause();video.srcObject=null;clearCanvas();
+ $("videoEmpty").hidden=false;$("stopCamera").disabled=true;$("startCamera").disabled=false;
+ cameraStatus("Camera Off");
+ if(show)message("कैमरा बंद कर दिया गया है।","success");
+}
+$("startCamera").addEventListener("click",startCamera);
+$("stopCamera").addEventListener("click",()=>stopCamera());
+
+function loop(){
+ if(!running)return;
+ raf=requestAnimationFrame(async()=>{
+  if(!running)return;
+  if(!busy&&video.readyState>=2){
+   busy=true;
+   try{await model.send({image:video})}
+   catch(e){if(running)message("फ्रेम प्रोसेसिंग में त्रुटि: "+e.message,"error")}
+   finally{busy=false}
   }
+  loop();
+ });
+}
 
-  // AI Assistant helpers
-  function fillAiQuery(text) {
-    const input = document.getElementById('ai-prompt-input');
-    if (input) {
-      input.value = text;
-      input.focus();
-    }
-  }
+function drawHand(lm){
+ const w=canvas.width,h=canvas.height;clearCanvas();
+ const edges=[[0,1],[1,2],[2,3],[3,4],[0,5],[5,6],[6,7],[7,8],
+ [5,9],[9,10],[10,11],[11,12],[9,13],[13,14],[14,15],[15,16],
+ [13,17],[17,18],[18,19],[19,20],[0,17]];
+ ctx.strokeStyle="#22e4ed";ctx.lineWidth=Math.max(2,w/250);
+ for(const [a,b] of edges){
+  ctx.beginPath();ctx.moveTo(lm[a].x*w,lm[a].y*h);ctx.lineTo(lm[b].x*w,lm[b].y*h);ctx.stroke();
+ }
+ lm.forEach((p,i)=>{
+  ctx.beginPath();ctx.arc(p.x*w,p.y*h,i===0?5:3.5,0,Math.PI*2);
+  ctx.fillStyle=i===0?"#ffcf48":"white";ctx.fill();
+ });
+}
 
-  function submitAiQuery() {
-    const input = document.getElementById('ai-prompt-input');
-    const resp = document.getElementById('ai-response-text');
-    if (!input || !resp) return;
+// Conservative static handshape heuristics, not a complete ASL classifier.
+function classify(lm){
+ if(!lm||lm.length<21)return null;
+ const tip=[4,8,12,16,20],pip=[3,6,10,14,18];
+ const extended=[false];
+ for(let i=1;i<5;i++){
+  extended.push(lm[tip[i]].y<lm[pip[i]].y-.015 &&
+   lm[tip[i]].y<lm[[0,5,9,13,17][i]].y-.035);
+ }
+ const width=Math.hypot(lm[5].x-lm[17].x,lm[5].y-lm[17].y);
+ if(width<.025)return null;
+ const thumbSpread=Math.hypot(lm[4].x-lm[2].x,lm[4].y-lm[2].y)/width;
+ const thumb=thumbSpread>.58;
+ const [_,i,m,r,p]=extended;
 
-    const val = input.value.trim();
-    if (!val) return;
+ // Motion is tracked, but displacement alone cannot establish J or Z.
+ const now=performance.now();
+ motion.push({t:now,x:lm[8].x,y:lm[8].y});
+ motion=motion.filter(q=>now-q.t<1000);
 
-    resp.innerHTML = `<span class="text-primary font-bold">Gram Bazar AI khoj raha hai...</span> Best deal found for "${val}" with Free COD delivery to your Pincode!`;
-  }
-</script></main><footer class="w-full bg-surface-container-low text-on-surface-variant pt-space-xl pb-space-lg mt-space-xl shadow-[0_-1px_6px_rgba(0,0,0,0.02)]"><div class="max-w-[1360px] mx-auto px-margin-desktop"><div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-space-lg mb-space-xl"><div class="flex flex-col gap-space-sm"><h3 class="font-title-sm text-title-sm font-bold text-on-surface uppercase tracking-wider">About Gram Bazar</h3><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="about-us" href="#">About Us</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="sell-on-gram-bazar" href="#">Sell on Gram Bazar</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="careers" href="#">Careers</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="press-and-news" href="#">Press &amp; News</a></div><div class="flex flex-col gap-space-sm"><h3 class="font-title-sm text-title-sm font-bold text-on-surface uppercase tracking-wider">Help &amp; Support</h3><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="contact-and-help" href="#">Contact &amp; Help</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="faqs" href="#">FAQs</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="customer-service" href="#">Customer Grievances</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="orders" href="#">Track Your Order</a></div><div class="flex flex-col gap-space-sm"><h3 class="font-title-sm text-title-sm font-bold text-on-surface uppercase tracking-wider">Consumer Policies</h3><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="privacy-policy" href="#">Privacy Policy</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="terms-of-service" href="#">Terms of Service</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="shipping-policy" href="#">Shipping Policy</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="return-and-refund-policy" href="#">Return &amp; Refund</a></div><div class="flex flex-col gap-space-sm"><h3 class="font-title-sm text-title-sm font-bold text-on-surface uppercase tracking-wider">Make Money With Us</h3><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="sell-on-gram-bazar" href="#">Become a Local Merchant</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="affiliate-program" href="#">Gram Affiliate Program</a><a class="font-body-sm text-body-sm hover:text-primary transition-colors" data-path="advertise" href="#">Advertise Your Products</a></div><div class="col-span-2 md:col-span-4 lg:col-span-1 flex flex-col gap-space-sm"><h3 class="font-title-sm text-title-sm font-bold text-on-surface uppercase tracking-wider">Payment Security</h3><p class="font-body-sm text-body-sm text-on-surface-variant">100% Secure &amp; Trusted Payments with UPI, NetBanking, COD, and major cards.</p><div class="flex flex-wrap gap-2 pt-1"><div class="px-2 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-bold flex items-center gap-1"><span class="material-symbols-outlined text-primary text-sm">verified_user</span>UPI &amp; COD</div><div class="px-2 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-bold flex items-center gap-1"><span class="material-symbols-outlined text-primary text-sm">lock</span>PCI-DSS Safe</div><div class="px-2 py-1 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-bold flex items-center gap-1"><span class="material-symbols-outlined text-primary text-sm">local_shipping</span>Local Verified</div></div></div></div><div class="pt-space-md border-t border-surface-container flex flex-col sm:flex-row items-center justify-between gap-space-sm text-center sm:text-left"><p class="font-body-sm text-body-sm text-on-surface-variant">© 2025 Gram Bazar. Apne Bazaar Ki Online Dukaan. All rights reserved.</p><div class="flex items-center gap-space-md"><span class="font-label-sm text-label-sm text-primary font-bold">Made with pride for Bharat</span></div></div></div></footer></body></html>
+ if(i&&!m&&!r&&!p&&thumb)return "L";
+ if(i&&m&&r&&p&&!thumb)return "B";
+ if(i&&m&&r&&!p)return "W";
+ if(i&&m&&!r&&!p){
+  const sep=Math.hypot(lm[8].x-lm[12].x,lm[8].y-lm[12].y)/width;
+  if(sep>.38)return "V";
+  if(sep<.20)return "U";
+  return null;
+ }
+ if(!i&&!m&&!r&&p&&thumb)return "Y";
+ if(!i&&!m&&!r&&p&&!thumb)return "I";
+
+ // Ambiguous shapes return unknown rather than inventing a letter.
+ return null;
+}
+function resetPrediction(){
+ candidate="";stable=0;current="";
+ $("detectedLetter").textContent="—";
+ $("detectedName").textContent="Unknown Gesture";
+ $("confidence").textContent="स्पष्ट संकेत की प्रतीक्षा…";
+ $("addLetter").disabled=true;
+}
+function onResults(res){
+ if(!running)return;
+ frames++;$("framesCount").textContent=frames;
+ const w=video.videoWidth||640,h=video.videoHeight||480;
+ if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h}
+ const list=res.multiHandLandmarks||[];
+ hands=list.length;$("handsCount").textContent=hands;
+ if(!list.length){
+  clearCanvas();resetPrediction();message("हाथ नहीं दिख रहा। हाथ को कैमरे के सामने रखें।");return;
+ }
+ drawHand(list[0]);
+ const guess=classify(list[0])||"Unknown Gesture";
+ if(guess===candidate)stable++;else{candidate=guess;stable=1}
+ if(stable<5){
+  $("confidence").textContent="Stability: "+stable+"/5 frames";
+  return;
+ }
+ if(guess==="Unknown Gesture"){
+  current="";$("detectedLetter").textContent="?";
+  $("detectedName").textContent="Unknown Gesture";
+  $("confidence").textContent="अनुमान स्पष्ट नहीं है।";
+  $("addLetter").disabled=true;
+  message("इस handshape को समर्थित नियमों से स्पष्ट नहीं पहचाना गया।");
+  return;
+ }
+ current=guess;
+ $("detectedLetter").textContent=guess;
+ $("detectedName").textContent=names[guess];
+ $("confidence").textContent="5/5 स्थिर frames · heuristic estimate";
+ $("addLetter").disabled=false;
+ message("संभावित अक्षर "+guess+"। यह शैक्षिक अनुमान है, प्रमाणित अनुवाद नहीं।","success");
+}
+function updateWord(){$("outputText").textContent=word||" ";}
+
+$("addLetter").addEventListener("click",()=>{
+ if(!current)return;
+ word+=current;updateWord();message("अक्षर "+current+" जोड़ा गया।","success");
+});
+$("addSpace").addEventListener("click",()=>{
+ if(word&&!word.endsWith(" "))word+=" ";
+ updateWord();message("Space जोड़ा गया।","success");
+});
+$("reset").addEventListener("click",()=>{
+ word="";updateWord();resetPrediction();motion=[];
+ frames=0;hands=0;$("framesCount").textContent="0";$("handsCount").textContent="0";
+ message("अभ्यास रीसेट हो गया।","success");
+});
+window.addEventListener("pagehide",()=>stopCamera(false));
+
+updateWord();
+</script>
+</body>
+</html>
